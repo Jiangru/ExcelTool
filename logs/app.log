@@ -1,0 +1,619 @@
+2026-02-13 11:13:06,414 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-02-13 11:16:01,202 - src.controllers.main_controller - ERROR - main_controller.py:28 - 合并任务失败
+Traceback (most recent call last):
+  File "D:\Workspace\ExcelTool\src\controllers\main_controller.py", line 23, in run
+    result = ExcelMergeWorker.merge_files(
+        self.file_list, self.output_path, self.merge_type
+    )
+  File "D:\Workspace\ExcelTool\src\models\excel_worker.py", line 40, in merge_files
+    result.to_excel(output_path, index=False)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\pandas\core\generic.py", line 2312, in to_excel
+    formatter.write(
+    ~~~~~~~~~~~~~~~^
+        excel_writer,
+        ^^^^^^^^^^^^^
+    ...<6 lines>...
+        engine_kwargs=engine_kwargs,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\pandas\io\formats\excel.py", line 1003, in write
+    writer = ExcelWriter(
+        writer,
+    ...<2 lines>...
+        engine_kwargs=engine_kwargs,
+    )
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\pandas\io\excel\_openpyxl.py", line 62, in __init__
+    super().__init__(
+    ~~~~~~~~~~~~~~~~^
+        path,
+        ^^^^^
+    ...<3 lines>...
+        engine_kwargs=engine_kwargs,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\pandas\io\excel\_base.py", line 1281, in __init__
+    self._handles = get_handle(
+                    ~~~~~~~~~~^
+        path, mode, storage_options=storage_options, is_text=False
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\pandas\io\common.py", line 935, in get_handle
+    handle = open(handle, ioargs.mode)
+PermissionError: [Errno 13] Permission denied: 'C:/Users/86546/Desktop/demo1.xlsx'
+2026-02-13 11:17:34,844 - src.models.excel_worker - INFO - excel_worker.py:41 - 文件合并成功，保存至: C:/Users/86546/Desktop/合并文件.xlsx
+2026-02-13 11:23:55,097 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-02-13 11:24:49,490 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-02-13 11:25:34,048 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-02-13 11:26:29,736 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-02-13 11:33:43,913 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-02-13 11:34:22,422 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-02-13 12:08:24,365 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-02-13 12:11:14,141 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-02-13 12:16:18,802 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-02-13 12:21:23,967 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-02-13 12:21:44,370 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-02-13 12:22:04,753 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-02-13 12:24:56,622 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-02-13 13:36:58,386 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-02-13 13:41:47,364 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-02-13 13:42:23,799 - src.controllers.matcher_controller - ERROR - matcher_controller.py:37 - 匹配任务失败
+Traceback (most recent call last):
+  File "D:\Workspace\ExcelTool\src\controllers\matcher_controller.py", line 26, in run
+    result = ExcelMatcher.match_and_merge(
+        file_a=self.file_a,
+    ...<5 lines>...
+        output_path=self.output
+    )
+  File "D:\Workspace\ExcelTool\src\models\excel_matcher.py", line 56, in match_and_merge
+    result = pd.merge(
+        left, right,
+    ...<3 lines>...
+        suffixes=('', '_fromB')  # 如有重复列名自动添加后缀
+    )
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\pandas\core\reshape\merge.py", line 385, in merge
+    op = _MergeOperation(
+        left_df,
+    ...<10 lines>...
+        validate=validate,
+    )
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\pandas\core\reshape\merge.py", line 1018, in __init__
+    ) = self._get_merge_keys()
+        ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\pandas\core\reshape\merge.py", line 1620, in _get_merge_keys
+    right_keys.append(right._get_label_or_level_values(rk))
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\pandas\core\generic.py", line 1792, in _get_label_or_level_values
+    raise ValueError(
+        f"The {label_axis_name} label '{key}' is not unique.{multi_message}"
+    )
+ValueError: The column label '姓名' is not unique.
+2026-02-13 13:43:10,766 - src.models.excel_matcher - INFO - excel_matcher.py:67 - 匹配合并完成，输出文件：C:/Users/86546/Desktop/匹配demo.xlsx
+2026-02-13 13:44:56,044 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-02-13 13:46:01,559 - src.models.excel_matcher - INFO - excel_matcher.py:67 - 匹配合并完成，输出文件：C:/Users/86546/Desktop/新文件.xlsx
+2026-02-13 14:02:50,872 - src.models.excel_matcher - INFO - excel_matcher.py:67 - 匹配合并完成，输出文件：C:/Users/86546/Desktop/新文件222.xlsx
+2026-02-13 14:07:47,552 - src.models.excel_worker - INFO - excel_worker.py:41 - 文件合并成功，保存至: C:/Users/86546/Desktop/合并文件11.xlsx
+2026-02-13 14:17:52,411 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-02-13 14:18:28,641 - src.models.excel_worker - INFO - excel_worker.py:41 - 文件合并成功，保存至: C:/Users/86546/Desktop/合并1231313.xlsx
+2026-02-13 14:20:05,132 - src.models.excel_matcher - INFO - excel_matcher.py:67 - 匹配合并完成，输出文件：C:\Users\86546\Desktop\demo1_matched.xlsx
+2026-02-13 14:20:33,980 - src.models.excel_matcher - INFO - excel_matcher.py:67 - 匹配合并完成，输出文件：C:/Users/86546/Desktop/demo1_matched111.xlsx
+2026-02-13 14:21:01,468 - src.models.excel_matcher - INFO - excel_matcher.py:67 - 匹配合并完成，输出文件：C:/Users/86546/Desktop/demo1_matched2222.xlsx
+2026-02-13 14:22:35,879 - src.models.excel_matcher - INFO - excel_matcher.py:67 - 匹配合并完成，输出文件：C:/Users/86546/Desktop/demo1_matched333.xlsx
+2026-02-13 14:48:48,578 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-02-13 14:49:15,400 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-02-13 14:49:49,886 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-02-13 14:57:53,083 - src.models.excel_filter - WARNING - excel_filter.py:58 - 文件筛选后无数据: C:/Users/86546/Desktop/安吉公交山川乡场站充电记录_20260131.xlsx
+2026-02-13 14:57:53,610 - src.models.excel_filter - WARNING - excel_filter.py:58 - 文件筛选后无数据: C:/Users/86546/Desktop/安吉公交鄣吴场站充电记录_20260131.xlsx
+2026-02-13 14:57:53,783 - src.models.excel_filter - WARNING - excel_filter.py:58 - 文件筛选后无数据: C:/Users/86546/Desktop/双舍村场站充电记录_20260131.xlsx
+2026-02-13 14:57:53,839 - src.models.excel_filter - WARNING - excel_filter.py:58 - 文件筛选后无数据: C:/Users/86546/Desktop/长林垓村场站充电记录_20260131.xlsx
+2026-02-13 14:57:53,843 - src.controllers.filter_controller - ERROR - filter_controller.py:34 - 筛选任务失败
+Traceback (most recent call last):
+  File "D:\Workspace\ExcelTool\src\controllers\filter_controller.py", line 24, in run
+    result = ExcelFilter.filter_and_export(
+        file_paths=self.file_paths,
+    ...<4 lines>...
+        progress_callback=self.signals.progress.emit
+    )
+  File "D:\Workspace\ExcelTool\src\models\excel_filter.py", line 92, in filter_and_export
+    writer.close()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\pandas\io\excel\_base.py", line 1403, in close
+    self._save()
+    ~~~~~~~~~~^^
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\pandas\io\excel\_openpyxl.py", line 111, in _save
+    self.book.save(self._handles.handle)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\openpyxl\workbook\workbook.py", line 386, in save
+    save_workbook(self, filename)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\openpyxl\writer\excel.py", line 294, in save_workbook
+    writer.save()
+    ~~~~~~~~~~~^^
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\openpyxl\writer\excel.py", line 275, in save
+    self.write_data()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\openpyxl\writer\excel.py", line 89, in write_data
+    archive.writestr(ARC_WORKBOOK, writer.write())
+                                   ~~~~~~~~~~~~^^
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\openpyxl\workbook\_writer.py", line 150, in write
+    self.write_views()
+    ~~~~~~~~~~~~~~~~^^
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\openpyxl\workbook\_writer.py", line 137, in write_views
+    active = get_active_sheet(self.wb)
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\openpyxl\workbook\_writer.py", line 35, in get_active_sheet
+    raise IndexError("At least one sheet must be visible")
+IndexError: At least one sheet must be visible
+2026-02-13 15:07:00,138 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-02-13 15:09:07,400 - src.models.excel_filter - WARNING - excel_filter.py:59 - 文件筛选后无数据: C:/Users/86546/Desktop/安吉公交山川乡场站充电记录_20260131.xlsx
+2026-02-13 15:09:07,938 - src.models.excel_filter - WARNING - excel_filter.py:59 - 文件筛选后无数据: C:/Users/86546/Desktop/安吉公交鄣吴场站充电记录_20260131.xlsx
+2026-02-13 15:09:08,134 - src.models.excel_filter - WARNING - excel_filter.py:59 - 文件筛选后无数据: C:/Users/86546/Desktop/双舍村场站充电记录_20260131.xlsx
+2026-02-13 15:09:08,187 - src.models.excel_filter - WARNING - excel_filter.py:59 - 文件筛选后无数据: C:/Users/86546/Desktop/长林垓村场站充电记录_20260131.xlsx
+2026-02-13 15:09:08,187 - src.models.excel_filter - WARNING - excel_filter.py:101 - 所有文件均无符合条件的数据，将创建一个空白工作表
+2026-02-13 15:09:08,201 - src.models.excel_filter - INFO - excel_filter.py:106 - 筛选汇总完成，输出文件: C:/Users/86546/Desktop/公交场站账单.xlsx
+2026-02-13 15:10:03,343 - src.controllers.filter_controller - ERROR - filter_controller.py:34 - 筛选任务失败
+Traceback (most recent call last):
+  File "D:\Workspace\ExcelTool\src\controllers\filter_controller.py", line 24, in run
+    result = ExcelFilter.filter_and_export(
+        file_paths=self.file_paths,
+    ...<4 lines>...
+        progress_callback=self.signals.progress.emit
+    )
+  File "D:\Workspace\ExcelTool\src\models\excel_filter.py", line 43, in filter_and_export
+    writer = pd.ExcelWriter(output_path, engine='openpyxl')
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\pandas\io\excel\_openpyxl.py", line 62, in __init__
+    super().__init__(
+    ~~~~~~~~~~~~~~~~^
+        path,
+        ^^^^^
+    ...<3 lines>...
+        engine_kwargs=engine_kwargs,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\pandas\io\excel\_base.py", line 1281, in __init__
+    self._handles = get_handle(
+                    ~~~~~~~~~~^
+        path, mode, storage_options=storage_options, is_text=False
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\pandas\io\common.py", line 935, in get_handle
+    handle = open(handle, ioargs.mode)
+PermissionError: [Errno 13] Permission denied: 'C:/Users/86546/Desktop/公交场站账单.xlsx'
+2026-02-13 15:10:18,453 - src.models.excel_filter - WARNING - excel_filter.py:59 - 文件筛选后无数据: C:/Users/86546/Desktop/安吉公交山川乡场站充电记录_20260131.xlsx
+2026-02-13 15:10:19,045 - src.models.excel_filter - INFO - excel_filter.py:87 - 已处理: C:/Users/86546/Desktop/安吉公交鄣吴场站充电记录_20260131.xlsx -> Sheet: 安吉公交鄣吴镇场站【公交】（内部使用）
+2026-02-13 15:10:19,360 - src.models.excel_filter - INFO - excel_filter.py:87 - 已处理: C:/Users/86546/Desktop/双舍村场站充电记录_20260131.xlsx -> Sheet: 双舍村场站【公交】（内部使用）
+2026-02-13 15:10:19,407 - src.models.excel_filter - WARNING - excel_filter.py:59 - 文件筛选后无数据: C:/Users/86546/Desktop/长林垓村场站充电记录_20260131.xlsx
+2026-02-13 15:10:19,653 - src.models.excel_filter - INFO - excel_filter.py:106 - 筛选汇总完成，输出文件: C:/Users/86546/Desktop/公交场站账单.xlsx
+2026-02-13 15:18:26,028 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-02-13 15:19:44,594 - src.models.excel_filter - WARNING - excel_filter.py:59 - 文件筛选后无数据: C:/Users/86546/Desktop/安吉公交山川乡场站充电记录_20260131.xlsx
+2026-02-13 15:19:45,161 - src.models.excel_filter - INFO - excel_filter.py:104 - 已处理: C:/Users/86546/Desktop/安吉公交鄣吴场站充电记录_20260131.xlsx -> Sheet: 安吉公交鄣吴镇场站【公交】（内部使用）
+2026-02-13 15:19:45,446 - src.models.excel_filter - INFO - excel_filter.py:104 - 已处理: C:/Users/86546/Desktop/双舍村场站充电记录_20260131.xlsx -> Sheet: 双舍村场站【公交】（内部使用）
+2026-02-13 15:19:45,489 - src.models.excel_filter - WARNING - excel_filter.py:59 - 文件筛选后无数据: C:/Users/86546/Desktop/长林垓村场站充电记录_20260131.xlsx
+2026-02-13 15:19:45,739 - src.models.excel_filter - INFO - excel_filter.py:123 - 筛选汇总完成，输出文件: C:/Users/86546/Desktop/公交场站数据1月.xlsx
+2026-02-13 15:20:39,701 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-02-13 15:20:52,523 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-02-13 15:21:56,920 - src.models.excel_filter - WARNING - excel_filter.py:59 - 文件筛选后无数据: C:/Users/86546/Desktop/安吉公交山川乡场站充电记录_20260131.xlsx
+2026-02-13 15:21:57,499 - src.models.excel_filter - INFO - excel_filter.py:104 - 已处理: C:/Users/86546/Desktop/安吉公交鄣吴场站充电记录_20260131.xlsx -> Sheet: 安吉公交鄣吴镇场站【公交】（内部使用）
+2026-02-13 15:21:57,788 - src.models.excel_filter - INFO - excel_filter.py:104 - 已处理: C:/Users/86546/Desktop/双舍村场站充电记录_20260131.xlsx -> Sheet: 双舍村场站【公交】（内部使用）
+2026-02-13 15:21:57,844 - src.models.excel_filter - WARNING - excel_filter.py:59 - 文件筛选后无数据: C:/Users/86546/Desktop/长林垓村场站充电记录_20260131.xlsx
+2026-02-13 15:21:58,074 - src.models.excel_filter - INFO - excel_filter.py:123 - 筛选汇总完成，输出文件: C:/Users/86546/Desktop/公交场站数据1月.xlsx
+2026-02-13 15:25:22,501 - src.models.excel_filter - INFO - excel_filter.py:104 - 已处理: C:/Users/86546/Desktop/安吉公交山川乡场站充电记录_20260131.xlsx -> Sheet: 安吉公交山川乡场站【公交】（内部使用）
+2026-02-13 15:25:23,233 - src.models.excel_filter - INFO - excel_filter.py:104 - 已处理: C:/Users/86546/Desktop/安吉公交鄣吴场站充电记录_20260131.xlsx -> Sheet: 安吉公交鄣吴镇场站【公交】（内部使用）
+2026-02-13 15:25:23,449 - src.models.excel_filter - INFO - excel_filter.py:104 - 已处理: C:/Users/86546/Desktop/双舍村场站充电记录_20260131.xlsx -> Sheet: 双舍村场站【公交】（内部使用）
+2026-02-13 15:25:23,537 - src.models.excel_filter - INFO - excel_filter.py:104 - 已处理: C:/Users/86546/Desktop/长林垓村场站充电记录_20260131.xlsx -> Sheet: 长林垓村场站【公交】（内部使用）
+2026-02-13 15:25:24,157 - src.models.excel_filter - INFO - excel_filter.py:123 - 筛选汇总完成，输出文件: C:/Users/86546/Desktop/公交账单111.xlsx
+2026-02-13 15:59:00,980 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-02-13 15:59:27,446 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-02-13 15:59:55,381 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-02-13 16:01:46,218 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-02-13 16:07:44,362 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-02-13 16:09:09,392 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-02-13 16:11:37,402 - src.models.excel_filter - INFO - excel_filter.py:134 - 已处理: C:/Users/86546/Desktop/安吉公交山川乡场站充电记录_20260131.xlsx -> Sheet: 安吉公交山川乡场站【公交】（内部使用）
+2026-02-13 16:11:38,238 - src.models.excel_filter - INFO - excel_filter.py:134 - 已处理: C:/Users/86546/Desktop/安吉公交鄣吴场站充电记录_20260131.xlsx -> Sheet: 安吉公交鄣吴镇场站【公交】（内部使用）
+2026-02-13 16:11:38,530 - src.models.excel_filter - INFO - excel_filter.py:134 - 已处理: C:/Users/86546/Desktop/双舍村场站充电记录_20260131.xlsx -> Sheet: 双舍村场站【公交】（内部使用）
+2026-02-13 16:11:38,590 - src.models.excel_filter - INFO - excel_filter.py:134 - 已处理: C:/Users/86546/Desktop/长林垓村场站充电记录_20260131.xlsx -> Sheet: 长林垓村场站【公交】（内部使用）
+2026-02-13 16:11:39,386 - src.models.excel_filter - INFO - excel_filter.py:153 - 筛选汇总完成，输出文件: C:/Users/86546/Desktop/终极版久远公交账单.xlsx
+2026-02-13 16:19:36,902 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-02-13 16:20:32,333 - src.models.excel_filter - INFO - excel_filter.py:134 - 已处理: C:/Users/86546/Desktop/安吉公交山川乡场站充电记录_20260131.xlsx -> Sheet: 安吉公交山川乡场站【公交】（内部使用）
+2026-02-13 16:20:33,170 - src.models.excel_filter - INFO - excel_filter.py:134 - 已处理: C:/Users/86546/Desktop/安吉公交鄣吴场站充电记录_20260131.xlsx -> Sheet: 安吉公交鄣吴镇场站【公交】（内部使用）
+2026-02-13 16:20:33,458 - src.models.excel_filter - INFO - excel_filter.py:134 - 已处理: C:/Users/86546/Desktop/双舍村场站充电记录_20260131.xlsx -> Sheet: 双舍村场站【公交】（内部使用）
+2026-02-13 16:20:33,522 - src.models.excel_filter - INFO - excel_filter.py:134 - 已处理: C:/Users/86546/Desktop/长林垓村场站充电记录_20260131.xlsx -> Sheet: 长林垓村场站【公交】（内部使用）
+2026-02-13 16:20:34,311 - src.models.excel_filter - INFO - excel_filter.py:153 - 筛选汇总完成，输出文件: C:/Users/86546/Desktop/生成测试.xlsx
+2026-02-13 16:24:24,179 - src.models.excel_filter - INFO - excel_filter.py:134 - 已处理: C:/Users/86546/Desktop/安吉公交山川乡场站充电记录_20260131.xlsx -> Sheet: 安吉公交山川乡场站【公交】（内部使用）
+2026-02-13 16:24:24,638 - src.models.excel_filter - INFO - excel_filter.py:134 - 已处理: C:/Users/86546/Desktop/安吉公交鄣吴场站充电记录_20260131.xlsx -> Sheet: 安吉公交鄣吴镇场站【公交】（内部使用）
+2026-02-13 16:24:24,802 - src.models.excel_filter - INFO - excel_filter.py:134 - 已处理: C:/Users/86546/Desktop/双舍村场站充电记录_20260131.xlsx -> Sheet: 双舍村场站【公交】（内部使用）
+2026-02-13 16:24:24,835 - src.models.excel_filter - INFO - excel_filter.py:134 - 已处理: C:/Users/86546/Desktop/长林垓村场站充电记录_20260131.xlsx -> Sheet: 长林垓村场站【公交】（内部使用）
+2026-02-13 16:24:25,273 - src.models.excel_filter - INFO - excel_filter.py:153 - 筛选汇总完成，输出文件: C:/Users/86546/Desktop/生成测试222.xlsx
+2026-02-13 16:26:42,889 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-02-13 16:27:33,548 - src.models.excel_filter - INFO - excel_filter.py:134 - 已处理: C:/Users/86546/Desktop/双舍村场站充电记录_20260131.xlsx -> Sheet: 双舍村场站【公交】（内部使用）
+2026-02-13 16:27:33,731 - src.models.excel_filter - INFO - excel_filter.py:134 - 已处理: C:/Users/86546/Desktop/安吉公交山川乡场站充电记录_20260131.xlsx -> Sheet: 安吉公交山川乡场站【公交】（内部使用）
+2026-02-13 16:27:34,164 - src.models.excel_filter - INFO - excel_filter.py:134 - 已处理: C:/Users/86546/Desktop/安吉公交鄣吴场站充电记录_20260131.xlsx -> Sheet: 安吉公交鄣吴镇场站【公交】（内部使用）
+2026-02-13 16:27:34,590 - src.models.excel_filter - INFO - excel_filter.py:153 - 筛选汇总完成，输出文件: C:/Users/86546/Desktop/生成测试3333.xlsx
+2026-02-13 16:39:52,711 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-02-13 16:40:35,856 - src.models.excel_filter - INFO - excel_filter.py:158 - 已处理: C:/Users/86546/Desktop/安吉公交山川乡场站充电记录_20260131.xlsx -> Sheet: 安吉公交山川乡场站【公交】（内部使用）
+2026-02-13 16:40:36,298 - src.models.excel_filter - INFO - excel_filter.py:158 - 已处理: C:/Users/86546/Desktop/安吉公交鄣吴场站充电记录_20260131.xlsx -> Sheet: 安吉公交鄣吴镇场站【公交】（内部使用）
+2026-02-13 16:40:36,467 - src.models.excel_filter - INFO - excel_filter.py:158 - 已处理: C:/Users/86546/Desktop/双舍村场站充电记录_20260131.xlsx -> Sheet: 双舍村场站【公交】（内部使用）
+2026-02-13 16:40:36,498 - src.models.excel_filter - INFO - excel_filter.py:158 - 已处理: C:/Users/86546/Desktop/长林垓村场站充电记录_20260131.xlsx -> Sheet: 长林垓村场站【公交】（内部使用）
+2026-02-13 16:40:36,954 - src.models.excel_filter - INFO - excel_filter.py:177 - 筛选汇总完成，输出文件: C:/Users/86546/Desktop/生成测试121313123123.xlsx
+2026-02-13 16:44:27,396 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-02-13 16:45:03,843 - src.models.excel_filter - INFO - excel_filter.py:158 - 已处理: C:/Users/86546/Desktop/安吉公交山川乡场站充电记录_20260131.xlsx -> Sheet: 安吉公交山川乡场站【公交】（内部使用）
+2026-02-13 16:45:04,274 - src.models.excel_filter - INFO - excel_filter.py:158 - 已处理: C:/Users/86546/Desktop/安吉公交鄣吴场站充电记录_20260131.xlsx -> Sheet: 安吉公交鄣吴镇场站【公交】（内部使用）
+2026-02-13 16:45:04,624 - src.models.excel_filter - INFO - excel_filter.py:177 - 筛选汇总完成，输出文件: C:/Users/86546/Desktop/测试一下下啦.xlsx
+2026-02-13 16:47:01,146 - src.models.excel_filter - INFO - excel_filter.py:158 - 已处理: C:/Users/86546/Desktop/双舍村场站充电记录_20260131.xlsx -> Sheet: 双舍村场站【公交】（内部使用）
+2026-02-13 16:47:01,180 - src.models.excel_filter - INFO - excel_filter.py:158 - 已处理: C:/Users/86546/Desktop/长林垓村场站充电记录_20260131.xlsx -> Sheet: 长林垓村场站【公交】（内部使用）
+2026-02-13 16:47:01,281 - src.models.excel_filter - INFO - excel_filter.py:177 - 筛选汇总完成，输出文件: C:/Users/86546/Desktop/测试一下下啦11111.xlsx
+2026-02-13 16:48:32,354 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-02-13 16:49:55,502 - src.models.excel_filter - WARNING - excel_filter.py:113 - 文件筛选后无数据: C:/Users/86546/Desktop/安吉公交山川乡场站充电记录_20260131.xlsx
+2026-02-13 16:49:55,825 - src.models.excel_filter - INFO - excel_filter.py:158 - 已处理: C:/Users/86546/Desktop/安吉公交鄣吴场站充电记录_20260131.xlsx -> Sheet: 安吉公交鄣吴镇场站【公交】（内部使用）
+2026-02-13 16:49:55,983 - src.models.excel_filter - INFO - excel_filter.py:158 - 已处理: C:/Users/86546/Desktop/双舍村场站充电记录_20260131.xlsx -> Sheet: 双舍村场站【公交】（内部使用）
+2026-02-13 16:49:56,006 - src.models.excel_filter - WARNING - excel_filter.py:113 - 文件筛选后无数据: C:/Users/86546/Desktop/长林垓村场站充电记录_20260131.xlsx
+2026-02-13 16:49:56,141 - src.models.excel_filter - INFO - excel_filter.py:177 - 筛选汇总完成，输出文件: C:/Users/86546/Desktop/原来版本生成.xlsx
+2026-02-21 09:20:22,605 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-02-21 09:23:29,119 - src.models.excel_filter - INFO - excel_filter.py:161 - 已处理: D:/Workspace/ExcelTool/测试数据/安吉公交山川乡场站充电记录_20260131.xlsx -> Sheet: 安吉公交山川乡场站【公交】（内部使用）
+2026-02-21 09:23:29,898 - src.models.excel_filter - INFO - excel_filter.py:161 - 已处理: D:/Workspace/ExcelTool/测试数据/安吉公交鄣吴场站充电记录_20260131.xlsx -> Sheet: 安吉公交鄣吴镇场站【公交】（内部使用）
+2026-02-21 09:23:30,186 - src.models.excel_filter - INFO - excel_filter.py:161 - 已处理: D:/Workspace/ExcelTool/测试数据/双舍村场站充电记录_20260131.xlsx -> Sheet: 双舍村场站【公交】（内部使用）
+2026-02-21 09:23:30,239 - src.models.excel_filter - INFO - excel_filter.py:161 - 已处理: D:/Workspace/ExcelTool/测试数据/长林垓村场站充电记录_20260131.xlsx -> Sheet: 长林垓村场站【公交】（内部使用）
+2026-02-21 09:23:30,975 - src.models.excel_filter - INFO - excel_filter.py:186 - ExcelWriter 已关闭，文件保存至: D:/Workspace/ExcelTool/测试数据/demo1.xlsx
+2026-02-21 09:37:53,774 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-02-21 09:38:55,296 - src.models.excel_filter - ERROR - excel_filter.py:62 - 加载匹配文件失败: 'method' object is not subscriptable
+2026-02-21 09:38:55,297 - src.models.excel_filter - ERROR - excel_filter.py:155 - 数据写入过程中发生异常
+Traceback (most recent call last):
+  File "D:\Workspace\ExcelTool\src\models\excel_filter.py", line 57, in filter_and_export
+    match_config['match_file'],
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^
+TypeError: 'method' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Workspace\ExcelTool\src\models\excel_filter.py", line 63, in filter_and_export
+    raise ValueError(f"匹配文件处理失败: {e}")
+ValueError: 匹配文件处理失败: 'method' object is not subscriptable
+2026-02-21 09:38:55,306 - src.models.excel_filter - ERROR - excel_filter.py:164 - 关闭 ExcelWriter 时出错: At least one sheet must be visible
+2026-02-21 09:38:55,306 - src.controllers.filter_controller - ERROR - filter_controller.py:36 - 筛选任务失败
+Traceback (most recent call last):
+  File "D:\Workspace\ExcelTool\src\models\excel_filter.py", line 57, in filter_and_export
+    match_config['match_file'],
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^
+TypeError: 'method' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Workspace\ExcelTool\src\models\excel_filter.py", line 63, in filter_and_export
+    raise ValueError(f"匹配文件处理失败: {e}")
+ValueError: 匹配文件处理失败: 'method' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Workspace\ExcelTool\src\controllers\filter_controller.py", line 25, in run
+    result = ExcelFilter.filter_and_export(
+        file_paths=self.file_paths,
+    ...<5 lines>...
+        progress_callback=self.signals.progress.emit
+    )
+  File "D:\Workspace\ExcelTool\src\models\excel_filter.py", line 169, in filter_and_export
+    raise close_err
+  File "D:\Workspace\ExcelTool\src\models\excel_filter.py", line 161, in filter_and_export
+    writer.close()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\pandas\io\excel\_base.py", line 1403, in close
+    self._save()
+    ~~~~~~~~~~^^
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\pandas\io\excel\_openpyxl.py", line 111, in _save
+    self.book.save(self._handles.handle)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\openpyxl\workbook\workbook.py", line 386, in save
+    save_workbook(self, filename)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\openpyxl\writer\excel.py", line 294, in save_workbook
+    writer.save()
+    ~~~~~~~~~~~^^
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\openpyxl\writer\excel.py", line 275, in save
+    self.write_data()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\openpyxl\writer\excel.py", line 89, in write_data
+    archive.writestr(ARC_WORKBOOK, writer.write())
+                                   ~~~~~~~~~~~~^^
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\openpyxl\workbook\_writer.py", line 150, in write
+    self.write_views()
+    ~~~~~~~~~~~~~~~~^^
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\openpyxl\workbook\_writer.py", line 137, in write_views
+    active = get_active_sheet(self.wb)
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\openpyxl\workbook\_writer.py", line 35, in get_active_sheet
+    raise IndexError("At least one sheet must be visible")
+IndexError: At least one sheet must be visible
+2026-02-21 09:39:29,888 - src.models.excel_filter - ERROR - excel_filter.py:62 - 加载匹配文件失败: 'method' object is not subscriptable
+2026-02-21 09:39:29,898 - src.models.excel_filter - ERROR - excel_filter.py:155 - 数据写入过程中发生异常
+Traceback (most recent call last):
+  File "D:\Workspace\ExcelTool\src\models\excel_filter.py", line 57, in filter_and_export
+    match_config['match_file'],
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^
+TypeError: 'method' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Workspace\ExcelTool\src\models\excel_filter.py", line 63, in filter_and_export
+    raise ValueError(f"匹配文件处理失败: {e}")
+ValueError: 匹配文件处理失败: 'method' object is not subscriptable
+2026-02-21 09:39:29,902 - src.models.excel_filter - ERROR - excel_filter.py:164 - 关闭 ExcelWriter 时出错: At least one sheet must be visible
+2026-02-21 09:39:29,902 - src.controllers.filter_controller - ERROR - filter_controller.py:36 - 筛选任务失败
+Traceback (most recent call last):
+  File "D:\Workspace\ExcelTool\src\models\excel_filter.py", line 57, in filter_and_export
+    match_config['match_file'],
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^
+TypeError: 'method' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Workspace\ExcelTool\src\models\excel_filter.py", line 63, in filter_and_export
+    raise ValueError(f"匹配文件处理失败: {e}")
+ValueError: 匹配文件处理失败: 'method' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Workspace\ExcelTool\src\controllers\filter_controller.py", line 25, in run
+    result = ExcelFilter.filter_and_export(
+        file_paths=self.file_paths,
+    ...<5 lines>...
+        progress_callback=self.signals.progress.emit
+    )
+  File "D:\Workspace\ExcelTool\src\models\excel_filter.py", line 169, in filter_and_export
+    raise close_err
+  File "D:\Workspace\ExcelTool\src\models\excel_filter.py", line 161, in filter_and_export
+    writer.close()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\pandas\io\excel\_base.py", line 1403, in close
+    self._save()
+    ~~~~~~~~~~^^
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\pandas\io\excel\_openpyxl.py", line 111, in _save
+    self.book.save(self._handles.handle)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\openpyxl\workbook\workbook.py", line 386, in save
+    save_workbook(self, filename)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\openpyxl\writer\excel.py", line 294, in save_workbook
+    writer.save()
+    ~~~~~~~~~~~^^
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\openpyxl\writer\excel.py", line 275, in save
+    self.write_data()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\openpyxl\writer\excel.py", line 89, in write_data
+    archive.writestr(ARC_WORKBOOK, writer.write())
+                                   ~~~~~~~~~~~~^^
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\openpyxl\workbook\_writer.py", line 150, in write
+    self.write_views()
+    ~~~~~~~~~~~~~~~~^^
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\openpyxl\workbook\_writer.py", line 137, in write_views
+    active = get_active_sheet(self.wb)
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\openpyxl\workbook\_writer.py", line 35, in get_active_sheet
+    raise IndexError("At least one sheet must be visible")
+IndexError: At least one sheet must be visible
+2026-02-21 09:42:40,084 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-02-21 09:43:30,900 - src.models.excel_filter - ERROR - excel_filter.py:62 - 加载匹配文件失败: 'method' object is not subscriptable
+2026-02-21 09:43:30,900 - src.models.excel_filter - ERROR - excel_filter.py:155 - 数据写入过程中发生异常
+Traceback (most recent call last):
+  File "D:\Workspace\ExcelTool\src\models\excel_filter.py", line 57, in filter_and_export
+    match_config['match_file'],
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^
+TypeError: 'method' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Workspace\ExcelTool\src\models\excel_filter.py", line 63, in filter_and_export
+    raise ValueError(f"匹配文件处理失败: {e}")
+ValueError: 匹配文件处理失败: 'method' object is not subscriptable
+2026-02-21 09:43:30,923 - src.models.excel_filter - ERROR - excel_filter.py:164 - 关闭 ExcelWriter 时出错: At least one sheet must be visible
+2026-02-21 09:43:30,924 - src.controllers.filter_controller - ERROR - filter_controller.py:36 - 筛选任务失败
+Traceback (most recent call last):
+  File "D:\Workspace\ExcelTool\src\models\excel_filter.py", line 57, in filter_and_export
+    match_config['match_file'],
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^
+TypeError: 'method' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Workspace\ExcelTool\src\models\excel_filter.py", line 63, in filter_and_export
+    raise ValueError(f"匹配文件处理失败: {e}")
+ValueError: 匹配文件处理失败: 'method' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Workspace\ExcelTool\src\controllers\filter_controller.py", line 25, in run
+    result = ExcelFilter.filter_and_export(
+        file_paths=self.file_paths,
+    ...<5 lines>...
+        progress_callback=self.signals.progress.emit
+    )
+  File "D:\Workspace\ExcelTool\src\models\excel_filter.py", line 169, in filter_and_export
+    raise close_err
+  File "D:\Workspace\ExcelTool\src\models\excel_filter.py", line 161, in filter_and_export
+    writer.close()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\pandas\io\excel\_base.py", line 1403, in close
+    self._save()
+    ~~~~~~~~~~^^
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\pandas\io\excel\_openpyxl.py", line 111, in _save
+    self.book.save(self._handles.handle)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\openpyxl\workbook\workbook.py", line 386, in save
+    save_workbook(self, filename)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\openpyxl\writer\excel.py", line 294, in save_workbook
+    writer.save()
+    ~~~~~~~~~~~^^
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\openpyxl\writer\excel.py", line 275, in save
+    self.write_data()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\openpyxl\writer\excel.py", line 89, in write_data
+    archive.writestr(ARC_WORKBOOK, writer.write())
+                                   ~~~~~~~~~~~~^^
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\openpyxl\workbook\_writer.py", line 150, in write
+    self.write_views()
+    ~~~~~~~~~~~~~~~~^^
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\openpyxl\workbook\_writer.py", line 137, in write_views
+    active = get_active_sheet(self.wb)
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\openpyxl\workbook\_writer.py", line 35, in get_active_sheet
+    raise IndexError("At least one sheet must be visible")
+IndexError: At least one sheet must be visible
+2026-02-21 09:43:30,962 - src.views.tabs.filter_tab - ERROR - filter_tab.py:541 - 无效的进度值: At least one sheet must be visible
+2026-02-21 09:44:53,700 - src.models.excel_filter - ERROR - excel_filter.py:62 - 加载匹配文件失败: 'method' object is not subscriptable
+2026-02-21 09:44:53,708 - src.models.excel_filter - ERROR - excel_filter.py:155 - 数据写入过程中发生异常
+Traceback (most recent call last):
+  File "D:\Workspace\ExcelTool\src\models\excel_filter.py", line 57, in filter_and_export
+    match_config['match_file'],
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^
+TypeError: 'method' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Workspace\ExcelTool\src\models\excel_filter.py", line 63, in filter_and_export
+    raise ValueError(f"匹配文件处理失败: {e}")
+ValueError: 匹配文件处理失败: 'method' object is not subscriptable
+2026-02-21 09:44:53,713 - src.models.excel_filter - ERROR - excel_filter.py:164 - 关闭 ExcelWriter 时出错: At least one sheet must be visible
+2026-02-21 09:44:53,714 - src.controllers.filter_controller - ERROR - filter_controller.py:36 - 筛选任务失败
+Traceback (most recent call last):
+  File "D:\Workspace\ExcelTool\src\models\excel_filter.py", line 57, in filter_and_export
+    match_config['match_file'],
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^
+TypeError: 'method' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Workspace\ExcelTool\src\models\excel_filter.py", line 63, in filter_and_export
+    raise ValueError(f"匹配文件处理失败: {e}")
+ValueError: 匹配文件处理失败: 'method' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Workspace\ExcelTool\src\controllers\filter_controller.py", line 25, in run
+    result = ExcelFilter.filter_and_export(
+        file_paths=self.file_paths,
+    ...<5 lines>...
+        progress_callback=self.signals.progress.emit
+    )
+  File "D:\Workspace\ExcelTool\src\models\excel_filter.py", line 169, in filter_and_export
+    raise close_err
+  File "D:\Workspace\ExcelTool\src\models\excel_filter.py", line 161, in filter_and_export
+    writer.close()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\pandas\io\excel\_base.py", line 1403, in close
+    self._save()
+    ~~~~~~~~~~^^
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\pandas\io\excel\_openpyxl.py", line 111, in _save
+    self.book.save(self._handles.handle)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\openpyxl\workbook\workbook.py", line 386, in save
+    save_workbook(self, filename)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\openpyxl\writer\excel.py", line 294, in save_workbook
+    writer.save()
+    ~~~~~~~~~~~^^
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\openpyxl\writer\excel.py", line 275, in save
+    self.write_data()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\openpyxl\writer\excel.py", line 89, in write_data
+    archive.writestr(ARC_WORKBOOK, writer.write())
+                                   ~~~~~~~~~~~~^^
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\openpyxl\workbook\_writer.py", line 150, in write
+    self.write_views()
+    ~~~~~~~~~~~~~~~~^^
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\openpyxl\workbook\_writer.py", line 137, in write_views
+    active = get_active_sheet(self.wb)
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\openpyxl\workbook\_writer.py", line 35, in get_active_sheet
+    raise IndexError("At least one sheet must be visible")
+IndexError: At least one sheet must be visible
+2026-02-21 09:44:53,749 - src.views.tabs.filter_tab - ERROR - filter_tab.py:541 - 无效的进度值: At least one sheet must be visible
+2026-02-21 09:58:06,533 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-02-21 09:58:49,417 - src.models.excel_filter - ERROR - excel_filter.py:71 - 加载匹配文件失败: 'method' object is not subscriptable
+2026-02-21 09:58:49,418 - src.models.excel_filter - ERROR - excel_filter.py:164 - 数据写入过程中发生异常
+Traceback (most recent call last):
+  File "D:\Workspace\ExcelTool\src\models\excel_filter.py", line 66, in filter_and_export
+    match_config['match_file'],
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^
+TypeError: 'method' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Workspace\ExcelTool\src\models\excel_filter.py", line 72, in filter_and_export
+    raise ValueError(f"匹配文件处理失败: {e}")
+ValueError: 匹配文件处理失败: 'method' object is not subscriptable
+2026-02-21 09:58:49,424 - src.models.excel_filter - ERROR - excel_filter.py:173 - 关闭 ExcelWriter 时出错: At least one sheet must be visible
+2026-02-21 09:58:49,424 - src.controllers.filter_controller - ERROR - filter_controller.py:36 - 筛选任务失败
+Traceback (most recent call last):
+  File "D:\Workspace\ExcelTool\src\models\excel_filter.py", line 66, in filter_and_export
+    match_config['match_file'],
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^
+TypeError: 'method' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Workspace\ExcelTool\src\models\excel_filter.py", line 72, in filter_and_export
+    raise ValueError(f"匹配文件处理失败: {e}")
+ValueError: 匹配文件处理失败: 'method' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Workspace\ExcelTool\src\controllers\filter_controller.py", line 25, in run
+    result = ExcelFilter.filter_and_export(
+        file_paths=self.file_paths,
+    ...<5 lines>...
+        progress_callback=self.signals.progress.emit
+    )
+  File "D:\Workspace\ExcelTool\src\models\excel_filter.py", line 178, in filter_and_export
+    raise close_err
+  File "D:\Workspace\ExcelTool\src\models\excel_filter.py", line 170, in filter_and_export
+    writer.close()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\pandas\io\excel\_base.py", line 1403, in close
+    self._save()
+    ~~~~~~~~~~^^
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\pandas\io\excel\_openpyxl.py", line 111, in _save
+    self.book.save(self._handles.handle)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\openpyxl\workbook\workbook.py", line 386, in save
+    save_workbook(self, filename)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\openpyxl\writer\excel.py", line 294, in save_workbook
+    writer.save()
+    ~~~~~~~~~~~^^
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\openpyxl\writer\excel.py", line 275, in save
+    self.write_data()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\openpyxl\writer\excel.py", line 89, in write_data
+    archive.writestr(ARC_WORKBOOK, writer.write())
+                                   ~~~~~~~~~~~~^^
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\openpyxl\workbook\_writer.py", line 150, in write
+    self.write_views()
+    ~~~~~~~~~~~~~~~~^^
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\openpyxl\workbook\_writer.py", line 137, in write_views
+    active = get_active_sheet(self.wb)
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\openpyxl\workbook\_writer.py", line 35, in get_active_sheet
+    raise IndexError("At least one sheet must be visible")
+IndexError: At least one sheet must be visible
+2026-02-21 09:58:49,479 - src.views.tabs.filter_tab - ERROR - filter_tab.py:541 - 进度条设置失败: invalid literal for int() with base 10: 'At least one sheet must be visible', value=At least one sheet must be visible
+2026-02-21 10:14:42,011 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-02-21 10:15:25,458 - src.models.excel_filter - INFO - excel_filter.py:197 - 匹配集合加载完成，共 62 个唯一值，示例: ['B4010082', 'B4010542', 'B4010576', 'B4010546', 'B4010345', 'B4010549', 'B4010363', 'B4010330', 'B4010333', 'B4010389']
+2026-02-21 10:15:25,458 - src.models.excel_filter - INFO - excel_filter.py:69 - 外部匹配集合加载完成，共 62 个唯一值
+2026-02-21 10:15:25,691 - src.models.excel_filter - WARNING - excel_filter.py:101 - 文件筛选后无数据: D:/Workspace/ExcelTool/测试数据/安吉公交山川乡场站充电记录_20260131.xlsx
+2026-02-21 10:15:26,310 - src.models.excel_filter - INFO - excel_filter.py:146 - 已处理: D:/Workspace/ExcelTool/测试数据/安吉公交鄣吴场站充电记录_20260131.xlsx -> Sheet: 安吉公交鄣吴镇场站【公交】（内部使用）
+2026-02-21 10:15:26,573 - src.models.excel_filter - INFO - excel_filter.py:146 - 已处理: D:/Workspace/ExcelTool/测试数据/双舍村场站充电记录_20260131.xlsx -> Sheet: 双舍村场站【公交】（内部使用）
+2026-02-21 10:15:26,617 - src.models.excel_filter - WARNING - excel_filter.py:101 - 文件筛选后无数据: D:/Workspace/ExcelTool/测试数据/长林垓村场站充电记录_20260131.xlsx
+2026-02-21 10:15:26,895 - src.models.excel_filter - INFO - excel_filter.py:171 - ExcelWriter 已关闭，文件保存至: D:/Workspace/ExcelTool/测试数据/demo.xlsx

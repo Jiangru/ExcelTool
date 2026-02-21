@@ -1,0 +1,7 @@
+# 依赖列表
+PySide6
+pandas
+openpyxl
+xlrd
+xlwt
+pyinstaller
