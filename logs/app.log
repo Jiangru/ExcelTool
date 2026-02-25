@@ -617,3 +617,55 @@ IndexError: At least one sheet must be visible
 2026-02-21 10:15:26,573 - src.models.excel_filter - INFO - excel_filter.py:146 - 已处理: D:/Workspace/ExcelTool/测试数据/双舍村场站充电记录_20260131.xlsx -> Sheet: 双舍村场站【公交】（内部使用）
 2026-02-21 10:15:26,617 - src.models.excel_filter - WARNING - excel_filter.py:101 - 文件筛选后无数据: D:/Workspace/ExcelTool/测试数据/长林垓村场站充电记录_20260131.xlsx
 2026-02-21 10:15:26,895 - src.models.excel_filter - INFO - excel_filter.py:171 - ExcelWriter 已关闭，文件保存至: D:/Workspace/ExcelTool/测试数据/demo.xlsx
+2026-02-21 14:51:56,721 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-02-21 14:57:34,756 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-02-21 15:05:36,724 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-02-21 15:22:03,756 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-02-21 15:23:47,770 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-02-21 15:31:27,390 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-02-21 15:32:47,447 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-02-21 15:34:20,402 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-02-21 15:40:41,276 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-02-21 15:56:08,627 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-02-21 15:58:48,778 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-02-21 16:02:03,254 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-02-21 16:03:05,346 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-02-21 16:03:48,577 - src.models.excel_filter - INFO - excel_filter.py:197 - 匹配集合加载完成，共 62 个唯一值，示例: ['B4010368', 'B4010550', 'B4010082', 'B4010338', 'B4010528', 'B4010558', 'B4010576', 'B4010331', 'B4010546', 'B4010572']
+2026-02-21 16:03:48,578 - src.models.excel_filter - INFO - excel_filter.py:69 - 外部匹配集合加载完成，共 62 个唯一值
+2026-02-21 16:03:48,717 - src.models.excel_filter - WARNING - excel_filter.py:101 - 文件筛选后无数据: D:/Workspace/ExcelTool/测试数据/安吉公交山川乡场站充电记录_20260131.xlsx
+2026-02-21 16:03:49,048 - src.models.excel_filter - INFO - excel_filter.py:146 - 已处理: D:/Workspace/ExcelTool/测试数据/安吉公交鄣吴场站充电记录_20260131.xlsx -> Sheet: 安吉公交鄣吴镇场站【公交】（内部使用）
+2026-02-21 16:03:49,214 - src.models.excel_filter - INFO - excel_filter.py:146 - 已处理: D:/Workspace/ExcelTool/测试数据/双舍村场站充电记录_20260131.xlsx -> Sheet: 双舍村场站【公交】（内部使用）
+2026-02-21 16:03:49,238 - src.models.excel_filter - WARNING - excel_filter.py:101 - 文件筛选后无数据: D:/Workspace/ExcelTool/测试数据/长林垓村场站充电记录_20260131.xlsx
+2026-02-21 16:03:49,339 - src.models.excel_filter - INFO - excel_filter.py:171 - ExcelWriter 已关闭，文件保存至: C:\Users\86546\Desktop\筛选汇总_20260221_160348.xlsx
+2026-02-21 16:04:55,259 - src.models.excel_filter - INFO - excel_filter.py:197 - 匹配集合加载完成，共 62 个唯一值，示例: ['B4010368', 'B4010550', 'B4010082', 'B4010338', 'B4010528', 'B4010558', 'B4010576', 'B4010331', 'B4010546', 'B4010572']
+2026-02-21 16:04:55,262 - src.models.excel_filter - INFO - excel_filter.py:69 - 外部匹配集合加载完成，共 62 个唯一值
+2026-02-21 16:04:55,394 - src.models.excel_filter - WARNING - excel_filter.py:101 - 文件筛选后无数据: D:/Workspace/ExcelTool/测试数据/安吉公交山川乡场站充电记录_20260131.xlsx
+2026-02-21 16:04:55,716 - src.models.excel_filter - INFO - excel_filter.py:146 - 已处理: D:/Workspace/ExcelTool/测试数据/安吉公交鄣吴场站充电记录_20260131.xlsx -> Sheet: 安吉公交鄣吴镇场站【公交】（内部使用）
+2026-02-21 16:04:55,866 - src.models.excel_filter - INFO - excel_filter.py:146 - 已处理: D:/Workspace/ExcelTool/测试数据/双舍村场站充电记录_20260131.xlsx -> Sheet: 双舍村场站【公交】（内部使用）
+2026-02-21 16:04:55,898 - src.models.excel_filter - WARNING - excel_filter.py:101 - 文件筛选后无数据: D:/Workspace/ExcelTool/测试数据/长林垓村场站充电记录_20260131.xlsx
+2026-02-21 16:04:55,998 - src.models.excel_filter - INFO - excel_filter.py:171 - ExcelWriter 已关闭，文件保存至: D:/Workspace/ExcelTool/测试数据/demo11.xlsx
+2026-02-21 16:06:40,117 - src.models.excel_filter - INFO - excel_filter.py:197 - 匹配集合加载完成，共 62 个唯一值，示例: ['B4010368', 'B4010550', 'B4010082', 'B4010338', 'B4010528', 'B4010558', 'B4010576', 'B4010331', 'B4010546', 'B4010572']
+2026-02-21 16:06:40,118 - src.models.excel_filter - INFO - excel_filter.py:69 - 外部匹配集合加载完成，共 62 个唯一值
+2026-02-21 16:06:40,231 - src.models.excel_filter - WARNING - excel_filter.py:101 - 文件筛选后无数据: D:/Workspace/ExcelTool/测试数据/安吉公交山川乡场站充电记录_20260131.xlsx
+2026-02-21 16:06:40,551 - src.models.excel_filter - INFO - excel_filter.py:146 - 已处理: D:/Workspace/ExcelTool/测试数据/安吉公交鄣吴场站充电记录_20260131.xlsx -> Sheet: 安吉公交鄣吴镇场站【公交】（内部使用）
+2026-02-21 16:06:40,703 - src.models.excel_filter - INFO - excel_filter.py:146 - 已处理: D:/Workspace/ExcelTool/测试数据/双舍村场站充电记录_20260131.xlsx -> Sheet: 双舍村场站【公交】（内部使用）
+2026-02-21 16:06:40,728 - src.models.excel_filter - WARNING - excel_filter.py:101 - 文件筛选后无数据: D:/Workspace/ExcelTool/测试数据/长林垓村场站充电记录_20260131.xlsx
+2026-02-21 16:06:40,864 - src.models.excel_filter - INFO - excel_filter.py:171 - ExcelWriter 已关闭，文件保存至: D:/Workspace/ExcelTool/测试数据/demo2222.xlsx
+2026-02-21 16:09:11,032 - src.models.excel_filter - INFO - excel_filter.py:197 - 匹配集合加载完成，共 62 个唯一值，示例: ['B4010368', 'B4010550', 'B4010082', 'B4010338', 'B4010528', 'B4010558', 'B4010576', 'B4010331', 'B4010546', 'B4010572']
+2026-02-21 16:09:11,032 - src.models.excel_filter - INFO - excel_filter.py:69 - 外部匹配集合加载完成，共 62 个唯一值
+2026-02-21 16:09:11,160 - src.models.excel_filter - WARNING - excel_filter.py:101 - 文件筛选后无数据: D:/Workspace/ExcelTool/测试数据/安吉公交山川乡场站充电记录_20260131.xlsx
+2026-02-21 16:09:11,475 - src.models.excel_filter - INFO - excel_filter.py:146 - 已处理: D:/Workspace/ExcelTool/测试数据/安吉公交鄣吴场站充电记录_20260131.xlsx -> Sheet: 浙E00107D
+2026-02-21 16:09:11,636 - src.models.excel_filter - INFO - excel_filter.py:146 - 已处理: D:/Workspace/ExcelTool/测试数据/双舍村场站充电记录_20260131.xlsx -> Sheet: 浙E09878D
+2026-02-21 16:09:11,660 - src.models.excel_filter - WARNING - excel_filter.py:101 - 文件筛选后无数据: D:/Workspace/ExcelTool/测试数据/长林垓村场站充电记录_20260131.xlsx
+2026-02-21 16:09:11,805 - src.models.excel_filter - INFO - excel_filter.py:171 - ExcelWriter 已关闭，文件保存至: D:/Workspace/ExcelTool/测试数据/车辆tab.xlsx
+2026-02-21 16:12:38,560 - src.models.excel_filter - WARNING - excel_filter.py:101 - 文件筛选后无数据: D:/Workspace/ExcelTool/测试数据/安吉公交山川乡场站充电记录_20260131.xlsx
+2026-02-21 16:12:38,859 - src.models.excel_filter - INFO - excel_filter.py:146 - 已处理: D:/Workspace/ExcelTool/测试数据/安吉公交鄣吴场站充电记录_20260131.xlsx -> Sheet: 安吉公交鄣吴镇场站【公交】（内部使用）
+2026-02-21 16:12:38,958 - src.models.excel_filter - WARNING - excel_filter.py:101 - 文件筛选后无数据: D:/Workspace/ExcelTool/测试数据/双舍村场站充电记录_20260131.xlsx
+2026-02-21 16:12:38,989 - src.models.excel_filter - WARNING - excel_filter.py:101 - 文件筛选后无数据: D:/Workspace/ExcelTool/测试数据/长林垓村场站充电记录_20260131.xlsx
+2026-02-21 16:12:39,010 - src.models.excel_filter - INFO - excel_filter.py:171 - ExcelWriter 已关闭，文件保存至: D:/Workspace/ExcelTool/测试数据/条件筛选浙E09448D.xlsx
+2026-02-21 16:13:05,284 - src.models.excel_filter - WARNING - excel_filter.py:101 - 文件筛选后无数据: D:/Workspace/ExcelTool/测试数据/安吉公交山川乡场站充电记录_20260131.xlsx
+2026-02-21 16:13:05,588 - src.models.excel_filter - INFO - excel_filter.py:146 - 已处理: D:/Workspace/ExcelTool/测试数据/安吉公交鄣吴场站充电记录_20260131.xlsx -> Sheet: 浙E00107D
+2026-02-21 16:13:05,700 - src.models.excel_filter - WARNING - excel_filter.py:101 - 文件筛选后无数据: D:/Workspace/ExcelTool/测试数据/双舍村场站充电记录_20260131.xlsx
+2026-02-21 16:13:05,722 - src.models.excel_filter - WARNING - excel_filter.py:101 - 文件筛选后无数据: D:/Workspace/ExcelTool/测试数据/长林垓村场站充电记录_20260131.xlsx
+2026-02-21 16:13:05,740 - src.models.excel_filter - INFO - excel_filter.py:171 - ExcelWriter 已关闭，文件保存至: D:/Workspace/ExcelTool/测试数据/条件筛选浙E09448D.xlsx
+2026-02-25 12:03:18,284 - ExcelTool - INFO - main.py:18 - 程序启动

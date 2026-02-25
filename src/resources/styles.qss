@@ -36,6 +36,10 @@ QListWidget {
     background-color: white;
 }
 
+QListWidget#sum_list {
+    min-height: 200px;
+}
+
 QTextEdit {
     border: 1px solid #CCCCCC;
     border-radius: 4px;

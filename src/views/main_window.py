@@ -1,5 +1,7 @@
 # 使用PySide6构建主界面，包含菜单栏、标签页，并集成控制器。
 
+import sys
+import os
 from PySide6.QtWidgets import (QMainWindow, QWidget, QVBoxLayout,
                                QPushButton, QFileDialog, QLabel,
                                QComboBox, QTextEdit, QProgressBar,
@@ -22,6 +24,8 @@ class MainWindow(QMainWindow):
         self.config = config
         self.controller = MainController()
         self.setWindowTitle("Excel效率工具")
+        icon_path = self.resource_path(os.path.join("resources", "icons", "app.ico"))
+        self.setWindowIcon(QIcon(icon_path))
         self.resize(
             self.config.getint('APP', 'window_width', 1000),
             self.config.getint('APP', 'window_height', 700)
@@ -57,6 +61,17 @@ class MainWindow(QMainWindow):
         self.log_text.setReadOnly(True)
         layout.addWidget(self.log_text)
 
+    # --- 辅助函数，用于获取资源文件的正确路径 ---
+    def resource_path(self, relative_path):
+        """获取资源的绝对路径，兼容开发环境和 PyInstaller 打包后的环境。"""
+        try:
+            # PyInstaller 创建临时文件夹，将路径存储在 _MEIPASS 中
+            base_path = sys._MEIPASS
+        except Exception:
+            # 如果不是打包环境，则使用当前脚本的目录
+            base_path = os.path.abspath(".")
+
+        return os.path.join(base_path, relative_path)
     def _load_stylesheet(self):
         """加载QSS样式表"""
         style_path = os.path.join(os.path.dirname(__file__), '..', 'resources', 'styles.qss')

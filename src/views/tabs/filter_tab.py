@@ -33,13 +33,15 @@ class FilterTab(QWidget):
 
     def setup_ui(self):
         layout = QVBoxLayout(self)
+        layout.setSpacing(10)   # 主布局垂直间距
+        layout.setContentsMargins(10, 10, 10, 10)  # 整体边距
 
         # ---------- 1. 文件选择区 ----------
         file_group = QGroupBox("1. 选择多个Excel文件")
         file_layout = QHBoxLayout()
-
         self.file_list = QListWidget()
         self.file_list.setSelectionMode(QAbstractItemView.ExtendedSelection)
+        self.file_list.setMinimumWidth(300)          # 增加宽度
         file_layout.addWidget(self.file_list)
 
         btn_layout = QVBoxLayout()
@@ -54,18 +56,11 @@ class FilterTab(QWidget):
         btn_layout.addWidget(self.btn_clear_all)
         btn_layout.addStretch()
         file_layout.addLayout(btn_layout)
-
         file_group.setLayout(file_layout)
-        layout.addWidget(file_group)
-
-        # ---------- 2. 筛选条件设置 ----------
-        cond_group = QGroupBox("2. 设置筛选条件（多个条件之间为“与”关系）")
-        cond_layout = QVBoxLayout()
-
+        
         # ---------- 2.5 外部文件匹配条件（新增）----------
         self.match_group = QGroupBox("外部文件匹配条件（可选）")
         match_layout = QVBoxLayout()
-
         # 启用复选框
         self.chk_enable_match = QCheckBox("启用外部文件匹配")
         self.chk_enable_match.toggled.connect(self._on_match_enable_toggled)
@@ -86,11 +81,11 @@ class FilterTab(QWidget):
         col_match_layout = QHBoxLayout()
         col_match_layout.addWidget(QLabel("原文件匹配列："))
         self.combo_match_source = QComboBox()
-        self.combo_match_source.setMinimumWidth(250)      # 增加宽度，可自行调整数值
+        self.combo_match_source.setMinimumWidth(150)      # 增加宽度，可自行调整数值
         col_match_layout.addWidget(self.combo_match_source)
         col_match_layout.addWidget(QLabel("匹配文件列："))
         self.combo_match_target = QComboBox()
-        self.combo_match_target.setMinimumWidth(250)      # 同样增加宽度
+        self.combo_match_target.setMinimumWidth(150)      # 同样增加宽度
         col_match_layout.addWidget(self.combo_match_target)
         col_match_layout.addStretch()
         match_layout.addLayout(col_match_layout)
@@ -106,10 +101,19 @@ class FilterTab(QWidget):
         match_layout.addLayout(mode_layout)
 
         self.match_group.setLayout(match_layout)
-        layout.insertWidget(layout.indexOf(cond_group) + 1, self.match_group)  # 插入在条件组之后
+
+        # --- 将两个 GroupBox 放在同一行 ---
+        top_layout = QHBoxLayout()
+        top_layout.addWidget(file_group, 2)       # 文件选择区占 2 份宽度
+        top_layout.addWidget(self.match_group, 3) # 外部匹配区占 3 份宽度
+        layout.addLayout(top_layout)
 
         # 初始化控件状态（默认禁用）
         self._set_match_controls_enabled(False)
+
+        # ---------- 2. 筛选条件设置 ----------
+        cond_group = QGroupBox("2. 设置筛选条件（多个条件之间为“与”关系）")
+        cond_layout = QVBoxLayout()
 
         # 条件表格
         self.cond_table = QTableWidget()
@@ -117,6 +121,7 @@ class FilterTab(QWidget):
         self.cond_table.setHorizontalHeaderLabels(["列名", "运算符", "值", "操作"])
         self.cond_table.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
         self.cond_table.setEditTriggers(QTableWidget.NoEditTriggers)  # 部分列需自定义控件
+        self.cond_table.setMinimumHeight(150)
         cond_layout.addWidget(self.cond_table)
 
         # 添加条件按钮
@@ -127,8 +132,11 @@ class FilterTab(QWidget):
         cond_group.setLayout(cond_layout)
         layout.addWidget(cond_group)
 
+        # ---------- 3/4/5 水平布局 ----------
+        h_layout = QHBoxLayout()
+
         # ---------- 3. Sheet命名列选择 ----------
-        name_group = QGroupBox("3. Sheet命名列（取该列第一个非空值作为工作表名称）")
+        name_group = QGroupBox("3. Sheet命名列")
         name_layout = QHBoxLayout()
         name_layout.addWidget(QLabel("选择列："))
         self.combo_sheet_name = QComboBox()
@@ -136,13 +144,14 @@ class FilterTab(QWidget):
         name_layout.addWidget(self.combo_sheet_name)
         name_layout.addStretch()
         name_group.setLayout(name_layout)
-        layout.addWidget(name_group)
+        h_layout.addWidget(name_group, 1)   # 拉伸因子1
 
         # ---------- 4. 求和列选择 ----------
-        sum_group = QGroupBox("4. 选择需要格式化为数字并求和的列（可多选）")
+        sum_group = QGroupBox("4. 求和列")
         sum_layout = QVBoxLayout()
         self.sum_list = QListWidget()
         self.sum_list.setSelectionMode(QAbstractItemView.MultiSelection)
+        self.sum_list.setObjectName("sum_list")  # 给该下拉框添加特定的样式名称
         sum_layout.addWidget(self.sum_list)
         btn_sel_layout = QHBoxLayout()
         self.btn_select_all_sum = QPushButton("全选")
@@ -154,7 +163,7 @@ class FilterTab(QWidget):
         btn_sel_layout.addStretch()
         sum_layout.addLayout(btn_sel_layout)
         sum_group.setLayout(sum_layout)
-        layout.addWidget(sum_group)
+        h_layout.addWidget(sum_group, 2)   # 拉伸因子2（给更多宽度）
 
         # ---------- 5. 输出设置 ----------
         out_group = QGroupBox("5. 输出文件")
@@ -167,7 +176,10 @@ class FilterTab(QWidget):
         out_layout.addWidget(self.btn_output)
         out_layout.addStretch()
         out_group.setLayout(out_layout)
-        layout.addWidget(out_group)
+        h_layout.addWidget(out_group, 1)   # 拉伸因子1
+
+        # 将水平布局添加到主布局
+        layout.addLayout(h_layout)
 
         # ---------- 6. 执行按钮 ----------
         self.btn_start = QPushButton("开始筛选与汇总")
