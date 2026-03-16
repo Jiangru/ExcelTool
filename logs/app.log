@@ -669,3 +669,123 @@ IndexError: At least one sheet must be visible
 2026-02-21 16:13:05,722 - src.models.excel_filter - WARNING - excel_filter.py:101 - 文件筛选后无数据: D:/Workspace/ExcelTool/测试数据/长林垓村场站充电记录_20260131.xlsx
 2026-02-21 16:13:05,740 - src.models.excel_filter - INFO - excel_filter.py:171 - ExcelWriter 已关闭，文件保存至: D:/Workspace/ExcelTool/测试数据/条件筛选浙E09448D.xlsx
 2026-02-25 12:03:18,284 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-03-13 16:38:13,835 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-03-13 16:40:28,113 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-03-13 16:41:30,082 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-03-13 16:44:11,012 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-03-16 11:35:31,824 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-03-16 11:43:00,729 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-03-16 12:09:40,115 - src.models.excel_reconciliation - INFO - excel_reconciliation.py:89 - 对账完成，结果已保存至: C:/Users/86546/Desktop/123131313123123131.xlsx
+2026-03-16 14:48:19,725 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-03-16 14:49:02,875 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-03-16 14:49:43,312 - src.controllers.reconciliation_controller - ERROR - reconciliation_controller.py:42 - 对账任务失败
+Traceback (most recent call last):
+  File "D:\Workspace\ExcelTool\src\controllers\reconciliation_controller.py", line 30, in run
+    result = ExcelReconciliation.reconcile(
+        left_file=self.left_file,
+    ...<6 lines>...
+        output_path=self.output_path
+    )
+  File "D:\Workspace\ExcelTool\src\models\excel_reconciliation.py", line 88, in reconcile
+    result.to_excel(output_path, index=False)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\pandas\core\generic.py", line 2312, in to_excel
+    formatter.write(
+    ~~~~~~~~~~~~~~~^
+        excel_writer,
+        ^^^^^^^^^^^^^
+    ...<6 lines>...
+        engine_kwargs=engine_kwargs,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\pandas\io\formats\excel.py", line 1003, in write
+    writer = ExcelWriter(
+        writer,
+    ...<2 lines>...
+        engine_kwargs=engine_kwargs,
+    )
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\pandas\io\excel\_openpyxl.py", line 62, in __init__
+    super().__init__(
+    ~~~~~~~~~~~~~~~~^
+        path,
+        ^^^^^
+    ...<3 lines>...
+        engine_kwargs=engine_kwargs,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\pandas\io\excel\_base.py", line 1281, in __init__
+    self._handles = get_handle(
+                    ~~~~~~~~~~^
+        path, mode, storage_options=storage_options, is_text=False
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\pandas\io\common.py", line 935, in get_handle
+    handle = open(handle, ioargs.mode)
+PermissionError: [Errno 13] Permission denied: 'C:/Users/86546/Desktop/123131313123123131.xlsx'
+2026-03-16 14:50:06,647 - src.models.excel_reconciliation - INFO - excel_reconciliation.py:89 - 对账完成，结果已保存至: C:/Users/86546/Desktop/22222222222222222222222.xlsx
+2026-03-16 14:55:29,956 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-03-16 14:56:04,490 - src.models.excel_reconciliation - INFO - excel_reconciliation.py:107 - 对账完成，结果已保存至: C:/Users/86546/Desktop/3333333333.xlsx
+2026-03-16 15:06:58,000 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-03-16 15:14:13,083 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-03-16 15:14:53,187 - src.controllers.reconciliation_controller - ERROR - reconciliation_controller.py:45 - 对账任务失败
+Traceback (most recent call last):
+  File "D:\Workspace\ExcelTool\src\controllers\reconciliation_controller.py", line 32, in run
+    result = ExcelReconciliation.reconcile(
+        left_file=self.left_file,
+    ...<7 lines>...
+        output_path=self.output_path
+    )
+  File "D:\Workspace\ExcelTool\src\models\excel_reconciliation.py", line 50, in reconcile
+    df_left = cls._apply_match_filter(df_left, group_col, match_config, 'left')
+  File "D:\Workspace\ExcelTool\src\models\excel_reconciliation.py", line 130, in _apply_match_filter
+    match_col = match_config['match_col']   # 外部文件中用于匹配的列名
+                ~~~~~~~~~~~~^^^^^^^^^^^^^
+KeyError: 'match_col'
+2026-03-16 15:19:26,982 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-03-16 15:20:10,253 - src.models.excel_reconciliation - ERROR - excel_reconciliation.py:140 - 外部文件缺少列 场站
+2026-03-16 15:20:10,260 - src.models.excel_reconciliation - ERROR - excel_reconciliation.py:140 - 外部文件缺少列 场站
+2026-03-16 15:20:10,294 - src.models.excel_reconciliation - INFO - excel_reconciliation.py:106 - 对账完成，结果已保存至: C:/Users/86546/Desktop/444444444444.xlsx
+2026-03-16 15:34:26,582 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-03-16 15:34:48,881 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-03-16 15:36:00,648 - src.models.excel_reconciliation - INFO - excel_reconciliation.py:138 - 达克云 外部匹配剔除后剩余 31387 行（原 35522 行）
+2026-03-16 15:36:00,664 - src.models.excel_reconciliation - INFO - excel_reconciliation.py:138 - 海汇德 外部匹配剔除后剩余 24714 行（原 28817 行）
+2026-03-16 15:36:00,699 - src.models.excel_reconciliation - INFO - excel_reconciliation.py:97 - 对账完成，结果已保存至: C:/Users/86546/Desktop/6666666.xlsx
+2026-03-16 15:43:16,642 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-03-16 15:45:20,974 - src.views.tabs.reconciliation_tab - ERROR - reconciliation_tab.py:206 - 读取列名失败 C:/Users/86546/Desktop/达克云订单.xlsx: 'PySide6.QtWidgets.QComboBox.findText' called with wrong argument types:
+  PySide6.QtWidgets.QComboBox.findText(list, MatchFlag)
+Supported signatures:
+  PySide6.QtWidgets.QComboBox.findText(text: str, /, flags: PySide6.QtCore.Qt.MatchFlag = Instance(Qt.MatchFlags(Qt.MatchExactly | Qt.MatchCaseSensitive)))
+2026-03-16 15:48:25,020 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-03-16 15:50:08,359 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-03-16 15:50:52,598 - src.controllers.reconciliation_controller - ERROR - reconciliation_controller.py:45 - 对账任务失败
+Traceback (most recent call last):
+  File "D:\Workspace\ExcelTool\src\controllers\reconciliation_controller.py", line 32, in run
+    result = ExcelReconciliation.reconcile(
+        left_file=self.left_file,
+    ...<7 lines>...
+        output_path=self.output_path
+    )
+  File "D:\Workspace\ExcelTool\src\models\excel_reconciliation.py", line 40, in reconcile
+    cls._validate_columns(df_left, [group_col, left_energy_col, left_fee_col], left_file)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Workspace\ExcelTool\src\models\excel_reconciliation.py", line 155, in _validate_columns
+    raise ValueError(f"文件 {file_name} 中缺少必要的列: {missing}")
+ValueError: 文件 C:/Users/86546/Desktop/达克云订单.xlsx 中缺少必要的列: ['场站']
+2026-03-16 15:52:05,753 - src.models.excel_reconciliation - INFO - excel_reconciliation.py:138 - 达克云 外部匹配剔除后剩余 31387 行（原 35522 行）
+2026-03-16 15:52:05,776 - src.models.excel_reconciliation - INFO - excel_reconciliation.py:138 - 海汇德 外部匹配剔除后剩余 24714 行（原 28817 行）
+2026-03-16 15:52:05,811 - src.models.excel_reconciliation - INFO - excel_reconciliation.py:97 - 对账完成，结果已保存至: C:/Users/86546/Desktop/777777777.xlsx
+2026-03-16 15:58:14,502 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-03-16 15:58:53,892 - src.models.excel_reconciliation - INFO - excel_reconciliation.py:140 - 达克云 外部匹配剔除后剩余 31387 行（原 35522 行）
+2026-03-16 15:58:53,908 - src.models.excel_reconciliation - INFO - excel_reconciliation.py:140 - 海汇德 外部匹配剔除后剩余 24714 行（原 28817 行）
+2026-03-16 15:58:53,947 - src.models.excel_reconciliation - INFO - excel_reconciliation.py:108 - 对账完成，结果已保存至: C:/Users/86546/Desktop/88888.xlsx
+2026-03-16 15:59:56,812 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-03-16 16:00:53,693 - src.models.excel_reconciliation - INFO - excel_reconciliation.py:140 - 达克云 外部匹配剔除后剩余 31387 行（原 35522 行）
+2026-03-16 16:00:53,709 - src.models.excel_reconciliation - INFO - excel_reconciliation.py:140 - 海汇德 外部匹配剔除后剩余 24714 行（原 28817 行）
+2026-03-16 16:00:53,746 - src.models.excel_reconciliation - INFO - excel_reconciliation.py:108 - 对账完成，结果已保存至: C:/Users/86546/Desktop/侧测试测试.xlsx
+2026-03-16 16:05:33,210 - src.models.excel_reconciliation - INFO - excel_reconciliation.py:140 - 达克云 外部匹配剔除后剩余 25112 行（原 35522 行）
+2026-03-16 16:05:33,229 - src.models.excel_reconciliation - INFO - excel_reconciliation.py:140 - 海汇德 外部匹配剔除后剩余 24578 行（原 28817 行）
+2026-03-16 16:05:33,272 - src.models.excel_reconciliation - INFO - excel_reconciliation.py:108 - 对账完成，结果已保存至: C:/Users/86546/Desktop/测试111111.xlsx
+2026-03-16 16:36:48,324 - ExcelTool - INFO - main.py:18 - 程序启动

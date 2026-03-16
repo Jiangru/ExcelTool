@@ -1,4 +1,4 @@
-# -*- mode: python ; coding: utf-8 -*-
+# -*- mode: python ; coding: utf-8 打包指令 pyinstaller ExcelTool.spec --clean -*-
 
 block_cipher = None
 

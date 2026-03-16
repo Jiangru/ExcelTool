@@ -13,6 +13,7 @@ from src.controllers.main_controller import MainController
 from src.utils.logger import setup_logger
 from src.views.tabs.match_tab import MatchTab # 匹配组件
 from src.views.tabs.filter_tab import FilterTab # 筛选组件
+from src.views.tabs.reconciliation_tab import ReconciliationTab # 对账组件
 import os
 
 logger = setup_logger(__name__)
@@ -47,6 +48,7 @@ class MainWindow(QMainWindow):
         self._init_merge_tab()  # 合并功能页
         self._init_match_tab()   # 匹配组件
         self._init_filter_tab()  # 筛选组件
+        self._init_reconciliation_tab()   # 对账组件
 
         # 状态栏添加进度条
         self.status_bar = self.statusBar()
@@ -165,6 +167,16 @@ class MainWindow(QMainWindow):
             if not (file_path.endswith('.xlsx') or file_path.endswith('.xls')):
                 file_path += '.xlsx'
             self.output_path_edit.setText(file_path)
+
+    def _init_reconciliation_tab(self):
+        """初始化绿能畅游对账标签页"""
+        self.reconciliation_tab = ReconciliationTab(
+            controller=self.controller,
+            status_bar=self.statusBar(),
+            log_text=QTextEdit(),          # 使用主窗口底部的日志控件
+            progress_bar=self.progress_bar
+        )
+        self.tab_widget.addTab(self.reconciliation_tab, "绿能畅游对账")
 
     @Slot()
     def _on_merge_start(self):

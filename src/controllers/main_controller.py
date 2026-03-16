@@ -6,6 +6,7 @@ from src.models.excel_worker import ExcelMergeWorker
 from src.utils.logger import setup_logger
 from src.controllers.matcher_controller import MatcherController  # 匹配功能
 from src.controllers.filter_controller import FilterController # 筛选功能
+from src.controllers.reconciliation_controller import ReconciliationController # 绿能对账
 
 logger = setup_logger(__name__)
 
@@ -39,6 +40,7 @@ class MainController(QObject):
         # 可以持有具体功能的控制器，也可以直接在这里定义方法
         self.matcher_ctrl = MatcherController()  # 实例化匹配控制器
         self.filter_ctrl = FilterController() # 实例化筛选控制器
+        self.reconciliation_ctrl = ReconciliationController()   # 实例化绿能对账控制器
 
     def start_merge_task(self, file_list, output_path, merge_type,
                          progress_callback=None, message_callback=None,
@@ -88,4 +90,29 @@ class MainController(QObject):
             finished_callback=finished_callback,
             error_callback=error_callback,
             progress_callback=progress_callback
+        )
+
+        # 绿能对账任务启动方法
+    def start_reconciliation_task(self,
+                                  left_file, right_file,
+                                  group_col,
+                                  left_energy_col, left_fee_col,
+                                  right_energy_col, right_fee_col,
+                                  match_config,
+                                  output_path,
+                                  message_callback,
+                                  finished_callback,
+                                  error_callback,
+                                  progress_callback=None):
+        self.reconciliation_ctrl.start_reconciliation_task(
+            left_file, right_file,
+            group_col,
+            left_energy_col, left_fee_col,
+            right_energy_col, right_fee_col,
+            match_config,
+            output_path,
+            message_callback,
+            finished_callback,
+            error_callback,
+            progress_callback
         )
