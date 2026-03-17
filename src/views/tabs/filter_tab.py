@@ -15,7 +15,7 @@ logger = setup_logger(__name__)
 
 
 class FilterTab(QWidget):
-    """多文件筛选与汇总标签页"""
+    """多文件筛选与汇总标签页（带进度条提示）"""
     def __init__(self, controller, status_bar, log_text, progress_bar):
         super().__init__()
         self.controller = controller
@@ -26,10 +26,10 @@ class FilterTab(QWidget):
         self.file_paths = []          # 已选择的文件列表
         self.all_columns = []         # 所有文件的列名并集（从第一个文件读取）
         self.output_path = ""
+        self.match_file_path = None
 
         self.setup_ui()
         self._update_ui_state()
-        self.match_file_path = None
 
     def setup_ui(self):
         layout = QVBoxLayout(self)
@@ -57,8 +57,8 @@ class FilterTab(QWidget):
         btn_layout.addStretch()
         file_layout.addLayout(btn_layout)
         file_group.setLayout(file_layout)
-        
-        # ---------- 2.5 外部文件匹配条件（新增）----------
+
+        # ---------- 2.5 外部文件匹配条件 ----------
         self.match_group = QGroupBox("外部文件匹配条件（可选）")
         match_layout = QVBoxLayout()
         # 启用复选框
@@ -151,7 +151,7 @@ class FilterTab(QWidget):
         sum_layout = QVBoxLayout()
         self.sum_list = QListWidget()
         self.sum_list.setSelectionMode(QAbstractItemView.MultiSelection)
-        self.sum_list.setObjectName("sum_list")  # 给该下拉框添加特定的样式名称
+        self.sum_list.setMinimumHeight(200)  # 增加高度，可根据实际需要调整数值
         sum_layout.addWidget(self.sum_list)
         btn_sel_layout = QHBoxLayout()
         self.btn_select_all_sum = QPushButton("全选")
@@ -188,9 +188,6 @@ class FilterTab(QWidget):
         layout.addWidget(self.btn_start)
 
         layout.addStretch()
-
-        # 初始化添加一行默认条件
-        # self._add_condition_row()
 
     # ---------- 文件操作 ----------
     def _select_files(self):
@@ -477,9 +474,7 @@ class FilterTab(QWidget):
         # --- 收集外部匹配参数（如果启用）---
         match_config = None
         if self.chk_enable_match.isChecked():
-            print("开始匹配外部文件咯")
-            # 校验参数完整性
-            if not hasattr(self, 'match_file_path') or not self.match_file_path:
+            if not self.match_file_path:
                 QMessageBox.warning(self, "警告", "请选择匹配文件")
                 return
             source_col = self.combo_match_source.currentText()
@@ -549,6 +544,8 @@ class FilterTab(QWidget):
     def _on_progress(self, value):
         try:
             self.progress_bar.setValue(int(value))
+            # 显示进度百分比和提示文字
+            self.status_bar.showMessage(f"正在拼命处理中，请耐心等待。。。 {value}%", 0)
         except Exception as e:
             logger.error(f"进度条设置失败: {e}, value={value}")
             self.progress_bar.setValue(0)
@@ -557,6 +554,7 @@ class FilterTab(QWidget):
     def _on_finished(self, result):
         self.btn_start.setEnabled(True)
         self.progress_bar.hide()
+        self.status_bar.clearMessage()  # 清除进度消息
         self.log_text.append(f"筛选汇总完成！文件已保存至：{result}")
         QMessageBox.information(self, "完成", f"批量处理成功！\n输出文件：{result}")
 
@@ -564,5 +562,6 @@ class FilterTab(QWidget):
     def _on_error(self, err_msg):
         self.btn_start.setEnabled(True)
         self.progress_bar.hide()
+        self.status_bar.clearMessage()  # 清除进度消息
         self.log_text.append(f"错误：{err_msg}")
         QMessageBox.critical(self, "错误", f"任务执行失败：\n{err_msg}")

@@ -39,7 +39,7 @@ class ReconciliationTab(QWidget):
         file_layout = QHBoxLayout()
 
         # 左侧（达克云）
-        left_group = QGroupBox("达克云平台订单")
+        left_group = QGroupBox("达克云平台订单（注：需要把原文件中【充电场站名称】列的抬头改为【场站】）")
         left_vbox = QVBoxLayout()
         left_file_row = QHBoxLayout()
         self.left_file_label = QLabel("未选择")
