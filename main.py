@@ -24,6 +24,7 @@ def main():
     # QApplication.setAttribute(Qt.AA_UseHighDpiPixmaps)
 
     app = QApplication(sys.argv)
+    app.processEvents()   # 使画面及时显示
 
     # 加载配置文件（全局唯一实例）
     config = ConfigManager()

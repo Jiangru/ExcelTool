@@ -11,9 +11,6 @@ from PySide6.QtCore import Qt, Slot
 from PySide6.QtGui import QIcon
 from src.controllers.main_controller import MainController
 from src.utils.logger import setup_logger
-from src.views.tabs.match_tab import MatchTab # 匹配组件
-from src.views.tabs.filter_tab import FilterTab # 筛选组件
-from src.views.tabs.reconciliation_tab import ReconciliationTab # 对账组件
 import os
 
 logger = setup_logger(__name__)
@@ -25,7 +22,7 @@ class MainWindow(QMainWindow):
         self.config = config
         self.controller = MainController()
         self.setWindowTitle("Excel效率工具")
-        icon_path = self.resource_path(os.path.join("resources", "icons", "app.ico"))
+        icon_path = self.resource_path(os.path.join("resources", "icons", "myapp.ico"))
         self.setWindowIcon(QIcon(icon_path))
         self.resize(
             self.config.getint('APP', 'window_width', 1000),
@@ -82,6 +79,7 @@ class MainWindow(QMainWindow):
                 self.setStyleSheet(f.read())
     def _init_match_tab(self):
         """初始化数据匹配标签页"""
+        from src.views.tabs.match_tab import MatchTab # 匹配组件
         self.progress_bar = QProgressBar()
         self.match_tab = MatchTab(
             controller=self.controller,
@@ -148,6 +146,7 @@ class MainWindow(QMainWindow):
 
     def _init_filter_tab(self):
         """初始化多文件筛选标签页"""
+        from src.views.tabs.filter_tab import FilterTab # 筛选组件
         self.filter_tab = FilterTab(
             controller=self.controller,
             status_bar=self.statusBar(),
@@ -170,6 +169,7 @@ class MainWindow(QMainWindow):
 
     def _init_reconciliation_tab(self):
         """初始化绿能畅游对账标签页"""
+        from src.views.tabs.reconciliation_tab import ReconciliationTab # 对账组件
         self.reconciliation_tab = ReconciliationTab(
             controller=self.controller,
             status_bar=self.statusBar(),

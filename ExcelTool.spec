@@ -9,7 +9,7 @@ a = Analysis(
     datas=[
         ('config/settings.ini', 'config'),           # 配置文件
         ('src/resources/styles.qss', 'src/resources'),  # 样式表
-        ('src/resources/icons/app.ico', 'src/resources/icons')  # 图标（打包后会被主程序引用？实际上exe图标用--icon指定了）
+        ('src/resources/icons/myapp.ico', 'src/resources/icons')  # 图标（打包后会被主程序引用？实际上exe图标用--icon指定了）
     ],
     hiddenimports=['pandas', 'openpyxl', 'xlrd', 'xlwt'],
     hookspath=[],
@@ -31,7 +31,7 @@ exe = EXE(
     a.zipfiles,
     a.datas,
     [],
-    name='ExcelTool',
+    name='绿能ExcelTool',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
@@ -44,5 +44,5 @@ exe = EXE(
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
-    icon='src/resources/icons/app.ico'
+    icon='src/resources/icons/myapp.ico'
 )
