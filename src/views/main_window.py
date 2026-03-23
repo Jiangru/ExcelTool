@@ -22,7 +22,7 @@ class MainWindow(QMainWindow):
         self.config = config
         self.controller = MainController()
         self.setWindowTitle("Excel效率工具")
-        icon_path = self.resource_path(os.path.join("resources", "icons", "myapp.ico"))
+        icon_path = self.resource_path(os.path.join("resources", "icons", "newapp.ico"))
         self.setWindowIcon(QIcon(icon_path))
         self.resize(
             self.config.getint('APP', 'window_width', 1000),
