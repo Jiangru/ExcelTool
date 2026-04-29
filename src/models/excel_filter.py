@@ -106,7 +106,7 @@ class ExcelFilter:
                     df_formatted, sums = cls._format_and_sum(df_filtered, sum_columns)
 
                     # 确定sheet名称
-                    sheet_name = cls._generate_sheet_name(df, sheet_name_col, idx + 1)
+                    sheet_name = cls._generate_sheet_name(df_filtered, sheet_name_col, idx + 1)
 
                     output_dir = Path(output_path).parent
                     output_dir.mkdir(parents=True, exist_ok=True)

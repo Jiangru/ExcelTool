@@ -839,3 +839,118 @@ ValueError: 文件 C:/Users/86546/Desktop/达克云订单.xlsx 中缺少必要�
 2026-03-18 09:32:23,611 - src.models.excel_filter - INFO - excel_filter.py:171 - ExcelWriter 已关闭，文件保存至: C:/Users/86546/Desktop/测试数据/1111.xlsx
 2026-03-18 09:49:54,415 - ExcelTool - INFO - main.py:18 - 程序启动
 2026-03-18 15:42:38,423 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-04-29 12:12:14,489 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-04-29 12:13:07,371 - src.models.excel_filter - INFO - excel_filter.py:197 - 匹配集合加载完成，共 69 个唯一值，示例: ['LC1HNYBJXR0022353', 'LC1HNYBJ5R0008425', 'LC1HNYBJ0R0008445', 'LC1HNYBJ0R0008431', 'LC1HNYBJ3R0022372', 'LC1HNYBJXR0002765', 'LC1HNYBJ1R0022368', 'LC1HNYBJ1R0006154', 'LC1HNYBJ2R0008575', 'LC1HNYBJ6R0009034']
+2026-04-29 12:13:07,372 - src.models.excel_filter - INFO - excel_filter.py:69 - 外部匹配集合加载完成，共 69 个唯一值
+2026-04-29 12:13:09,085 - src.models.excel_filter - INFO - excel_filter.py:146 - 已处理: C:/Users/86546/Desktop/新建文件夹/3.1-3.31.xlsx -> Sheet: 绿能科技——鞍山站
+2026-04-29 12:13:11,259 - src.models.excel_filter - INFO - excel_filter.py:146 - 已处理: C:/Users/86546/Desktop/新建文件夹/4.1-4.30.xlsx -> Sheet: 绿能科技——鞍山站
+2026-04-29 12:13:11,350 - src.models.excel_filter - INFO - excel_filter.py:171 - ExcelWriter 已关闭，文件保存至: C:/Users/86546/Desktop/新建文件夹/测试3-4.xlsx
+2026-04-29 12:15:25,048 - src.models.excel_filter - INFO - excel_filter.py:197 - 匹配集合加载完成，共 69 个唯一值，示例: ['LC1HNYBJXR0022353', 'LC1HNYBJ5R0008425', 'LC1HNYBJ0R0008445', 'LC1HNYBJ0R0008431', 'LC1HNYBJ3R0022372', 'LC1HNYBJXR0002765', 'LC1HNYBJ1R0022368', 'LC1HNYBJ1R0006154', 'LC1HNYBJ2R0008575', 'LC1HNYBJ6R0009034']
+2026-04-29 12:15:25,048 - src.models.excel_filter - INFO - excel_filter.py:69 - 外部匹配集合加载完成，共 69 个唯一值
+2026-04-29 12:15:26,429 - src.models.excel_filter - WARNING - excel_filter.py:101 - 文件筛选后无数据: C:/Users/86546/Desktop/新建文件夹/1-31.xlsx
+2026-04-29 12:15:27,779 - src.models.excel_filter - WARNING - excel_filter.py:101 - 文件筛选后无数据: C:/Users/86546/Desktop/新建文件夹/2.1-2.28.xlsx
+2026-04-29 12:15:27,779 - src.models.excel_filter - WARNING - excel_filter.py:160 - 所有文件均无符合条件的数据，将创建一个空白工作表
+2026-04-29 12:15:27,785 - src.models.excel_filter - INFO - excel_filter.py:171 - ExcelWriter 已关闭，文件保存至: C:/Users/86546/Desktop/新建文件夹/测试1-2.xlsx
+2026-04-29 12:15:39,918 - src.models.excel_filter - INFO - excel_filter.py:197 - 匹配集合加载完成，共 69 个唯一值，示例: ['LC1HNYBJXR0022353', 'LC1HNYBJ5R0008425', 'LC1HNYBJ0R0008445', 'LC1HNYBJ0R0008431', 'LC1HNYBJ3R0022372', 'LC1HNYBJXR0002765', 'LC1HNYBJ1R0022368', 'LC1HNYBJ1R0006154', 'LC1HNYBJ2R0008575', 'LC1HNYBJ6R0009034']
+2026-04-29 12:15:39,918 - src.models.excel_filter - INFO - excel_filter.py:69 - 外部匹配集合加载完成，共 69 个唯一值
+2026-04-29 12:15:41,305 - src.models.excel_filter - INFO - excel_filter.py:146 - 已处理: C:/Users/86546/Desktop/新建文件夹/1-31.xlsx -> Sheet: 绿能科技——鞍山站
+2026-04-29 12:15:43,476 - src.models.excel_filter - INFO - excel_filter.py:146 - 已处理: C:/Users/86546/Desktop/新建文件夹/2.1-2.28.xlsx -> Sheet: 绿能科技——鞍山站
+2026-04-29 12:15:43,540 - src.models.excel_filter - INFO - excel_filter.py:171 - ExcelWriter 已关闭，文件保存至: C:/Users/86546/Desktop/新建文件夹/测试1-2.xlsx
+2026-04-29 12:29:49,988 - src.models.excel_filter - ERROR - excel_filter.py:164 - 数据写入过程中发生异常
+Traceback (most recent call last):
+  File "D:\02_Workspace\ExcelTool\src\models\excel_filter.py", line 61, in filter_and_export
+    writer = pd.ExcelWriter(output_path, engine='openpyxl')
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\pandas\io\excel\_openpyxl.py", line 62, in __init__
+    super().__init__(
+    ~~~~~~~~~~~~~~~~^
+        path,
+        ^^^^^
+    ...<3 lines>...
+        engine_kwargs=engine_kwargs,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\pandas\io\excel\_base.py", line 1281, in __init__
+    self._handles = get_handle(
+                    ~~~~~~~~~~^
+        path, mode, storage_options=storage_options, is_text=False
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\pandas\io\common.py", line 935, in get_handle
+    handle = open(handle, ioargs.mode)
+PermissionError: [Errno 13] Permission denied: 'C:/Users/86546/Desktop/新建文件夹/测试1-2.xlsx'
+2026-04-29 12:29:49,990 - src.controllers.filter_controller - ERROR - filter_controller.py:36 - 筛选任务失败
+Traceback (most recent call last):
+  File "D:\02_Workspace\ExcelTool\src\controllers\filter_controller.py", line 25, in run
+    result = ExcelFilter.filter_and_export(
+        file_paths=self.file_paths,
+    ...<5 lines>...
+        progress_callback=self.signals.progress.emit
+    )
+  File "D:\02_Workspace\ExcelTool\src\models\excel_filter.py", line 61, in filter_and_export
+    writer = pd.ExcelWriter(output_path, engine='openpyxl')
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\pandas\io\excel\_openpyxl.py", line 62, in __init__
+    super().__init__(
+    ~~~~~~~~~~~~~~~~^
+        path,
+        ^^^^^
+    ...<3 lines>...
+        engine_kwargs=engine_kwargs,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\pandas\io\excel\_base.py", line 1281, in __init__
+    self._handles = get_handle(
+                    ~~~~~~~~~~^
+        path, mode, storage_options=storage_options, is_text=False
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\86546\AppData\Local\Programs\Python\Python314\Lib\site-packages\pandas\io\common.py", line 935, in get_handle
+    handle = open(handle, ioargs.mode)
+PermissionError: [Errno 13] Permission denied: 'C:/Users/86546/Desktop/新建文件夹/测试1-2.xlsx'
+2026-04-29 12:29:58,191 - src.models.excel_filter - INFO - excel_filter.py:197 - 匹配集合加载完成，共 69 个唯一值，示例: ['LC1HNYBJXR0022353', 'LC1HNYBJ5R0008425', 'LC1HNYBJ0R0008445', 'LC1HNYBJ0R0008431', 'LC1HNYBJ3R0022372', 'LC1HNYBJXR0002765', 'LC1HNYBJ1R0022368', 'LC1HNYBJ1R0006154', 'LC1HNYBJ2R0008575', 'LC1HNYBJ6R0009034']
+2026-04-29 12:29:58,191 - src.models.excel_filter - INFO - excel_filter.py:69 - 外部匹配集合加载完成，共 69 个唯一值
+2026-04-29 12:29:59,593 - src.models.excel_filter - INFO - excel_filter.py:146 - 已处理: C:/Users/86546/Desktop/新建文件夹/1-31.xlsx -> Sheet: 绿能科技——鞍山站
+2026-04-29 12:30:00,938 - src.models.excel_filter - INFO - excel_filter.py:146 - 已处理: C:/Users/86546/Desktop/新建文件夹/2.1-2.28.xlsx -> Sheet: 绿能科技——鞍山站
+2026-04-29 12:30:00,973 - src.models.excel_filter - INFO - excel_filter.py:171 - ExcelWriter 已关闭，文件保存至: C:/Users/86546/Desktop/新建文件夹/测试1-2.xlsx
+2026-04-29 13:34:35,034 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-04-29 13:35:30,879 - src.models.excel_filter - INFO - excel_filter.py:197 - 匹配集合加载完成，共 69 个唯一值，示例: ['LC1HNYBJ3R0008441', 'LC1HNYBJ7R0008569', 'LC1HNYBJ5R0008425', 'LC1HNYBJ7R0008443', 'LC1HNYBJ8R0008449', 'LC1HNYBJXR0008436', 'LC1HNYBJ9R0008444', 'LC1HNYBJ0R0008445', 'LC1HNYBJ0R0008431', 'LC1HNYBJ6R0007459']
+2026-04-29 13:35:30,879 - src.models.excel_filter - INFO - excel_filter.py:69 - 外部匹配集合加载完成，共 69 个唯一值
+2026-04-29 13:35:33,310 - src.models.excel_filter - INFO - excel_filter.py:146 - 已处理: C:/Users/86546/Desktop/新建文件夹/1-31.xlsx -> Sheet: 绿能科技——鞍山站
+2026-04-29 13:35:35,738 - src.models.excel_filter - INFO - excel_filter.py:146 - 已处理: C:/Users/86546/Desktop/新建文件夹/2.1-2.28.xlsx -> Sheet: 绿能科技——鞍山站
+2026-04-29 13:35:35,806 - src.models.excel_filter - INFO - excel_filter.py:171 - ExcelWriter 已关闭，文件保存至: C:/Users/86546/Desktop/新建文件夹/测试1-2.xlsx
+2026-04-29 13:37:45,284 - src.models.excel_filter - INFO - excel_filter.py:197 - 匹配集合加载完成，共 69 个唯一值，示例: ['LC1HNYBJ3R0008441', 'LC1HNYBJ7R0008569', 'LC1HNYBJ5R0008425', 'LC1HNYBJ7R0008443', 'LC1HNYBJ8R0008449', 'LC1HNYBJXR0008436', 'LC1HNYBJ9R0008444', 'LC1HNYBJ0R0008445', 'LC1HNYBJ0R0008431', 'LC1HNYBJ6R0007459']
+2026-04-29 13:37:45,284 - src.models.excel_filter - INFO - excel_filter.py:69 - 外部匹配集合加载完成，共 69 个唯一值
+2026-04-29 13:37:47,218 - src.models.excel_filter - INFO - excel_filter.py:146 - 已处理: C:/Users/86546/Desktop/新建文件夹/1-31.xlsx -> Sheet: 绿能科技——鞍山站
+2026-04-29 13:37:47,272 - src.models.excel_filter - INFO - excel_filter.py:171 - ExcelWriter 已关闭，文件保存至: C:/Users/86546/Desktop/新建文件夹/测试1-2.xlsx
+2026-04-29 13:38:56,117 - src.models.excel_filter - INFO - excel_filter.py:197 - 匹配集合加载完成，共 69 个唯一值，示例: ['LC1HNYBJ3R0008441', 'LC1HNYBJ7R0008569', 'LC1HNYBJ5R0008425', 'LC1HNYBJ7R0008443', 'LC1HNYBJ8R0008449', 'LC1HNYBJXR0008436', 'LC1HNYBJ9R0008444', 'LC1HNYBJ0R0008445', 'LC1HNYBJ0R0008431', 'LC1HNYBJ6R0007459']
+2026-04-29 13:38:56,118 - src.models.excel_filter - INFO - excel_filter.py:69 - 外部匹配集合加载完成，共 69 个唯一值
+2026-04-29 13:38:58,188 - src.models.excel_filter - INFO - excel_filter.py:146 - 已处理: C:/Users/86546/Desktop/新建文件夹/2.1-2.28.xlsx -> Sheet: 绿能科技——鞍山站
+2026-04-29 13:38:58,233 - src.models.excel_filter - INFO - excel_filter.py:171 - ExcelWriter 已关闭，文件保存至: C:/Users/86546/Desktop/新建文件夹/测试2月.xlsx
+2026-04-29 15:04:23,668 - src.models.excel_filter - INFO - excel_filter.py:197 - 匹配集合加载完成，共 69 个唯一值，示例: ['LC1HNYBJ3R0008441', 'LC1HNYBJ7R0008569', 'LC1HNYBJ5R0008425', 'LC1HNYBJ7R0008443', 'LC1HNYBJ8R0008449', 'LC1HNYBJXR0008436', 'LC1HNYBJ9R0008444', 'LC1HNYBJ0R0008445', 'LC1HNYBJ0R0008431', 'LC1HNYBJ6R0007459']
+2026-04-29 15:04:23,671 - src.models.excel_filter - INFO - excel_filter.py:69 - 外部匹配集合加载完成，共 69 个唯一值
+2026-04-29 15:04:26,177 - src.models.excel_filter - INFO - excel_filter.py:146 - 已处理: C:/Users/86546/Desktop/新建文件夹/2.1-2.28.xlsx -> Sheet: 绿能科技——鞍山站
+2026-04-29 15:04:29,590 - src.models.excel_filter - INFO - excel_filter.py:146 - 已处理: C:/Users/86546/Desktop/新建文件夹/1-31.xlsx -> Sheet: 绿能科技——鞍山站
+2026-04-29 15:04:29,716 - src.models.excel_filter - INFO - excel_filter.py:171 - ExcelWriter 已关闭，文件保存至: C:/Users/86546/Desktop/新建文件夹/测试1-2.xlsx
+2026-04-29 15:05:23,060 - src.models.excel_filter - INFO - excel_filter.py:197 - 匹配集合加载完成，共 69 个唯一值，示例: ['LC1HNYBJ3R0008441', 'LC1HNYBJ7R0008569', 'LC1HNYBJ5R0008425', 'LC1HNYBJ7R0008443', 'LC1HNYBJ8R0008449', 'LC1HNYBJXR0008436', 'LC1HNYBJ9R0008444', 'LC1HNYBJ0R0008445', 'LC1HNYBJ0R0008431', 'LC1HNYBJ6R0007459']
+2026-04-29 15:05:23,060 - src.models.excel_filter - INFO - excel_filter.py:69 - 外部匹配集合加载完成，共 69 个唯一值
+2026-04-29 15:05:25,045 - src.models.excel_filter - INFO - excel_filter.py:146 - 已处理: C:/Users/86546/Desktop/新建文件夹/1-31.xlsx -> Sheet: 绿能科技——鞍山站
+2026-04-29 15:05:26,971 - src.models.excel_filter - INFO - excel_filter.py:146 - 已处理: C:/Users/86546/Desktop/新建文件夹/2.1-2.28.xlsx -> Sheet: 绿能科技——鞍山站
+2026-04-29 15:05:27,022 - src.models.excel_filter - INFO - excel_filter.py:171 - ExcelWriter 已关闭，文件保存至: C:/Users/86546/Desktop/新建文件夹/测试1-2.xlsx
+2026-04-29 15:06:43,278 - src.models.excel_filter - INFO - excel_filter.py:197 - 匹配集合加载完成，共 69 个唯一值，示例: ['LC1HNYBJ3R0008441', 'LC1HNYBJ7R0008569', 'LC1HNYBJ5R0008425', 'LC1HNYBJ7R0008443', 'LC1HNYBJ8R0008449', 'LC1HNYBJXR0008436', 'LC1HNYBJ9R0008444', 'LC1HNYBJ0R0008445', 'LC1HNYBJ0R0008431', 'LC1HNYBJ6R0007459']
+2026-04-29 15:06:43,278 - src.models.excel_filter - INFO - excel_filter.py:69 - 外部匹配集合加载完成，共 69 个唯一值
+2026-04-29 15:06:44,825 - src.models.excel_filter - INFO - excel_filter.py:146 - 已处理: C:/Users/86546/Desktop/新建文件夹/1-31.xlsx -> Sheet: 安吉绿色供能科技发展有限公司
+2026-04-29 15:06:46,190 - src.models.excel_filter - INFO - excel_filter.py:146 - 已处理: C:/Users/86546/Desktop/新建文件夹/2.1-2.28.xlsx -> Sheet: 安吉绿色供能科技发展有限公司
+2026-04-29 15:06:46,223 - src.models.excel_filter - INFO - excel_filter.py:171 - ExcelWriter 已关闭，文件保存至: C:/Users/86546/Desktop/新建文件夹/测试1-2.xlsx
+2026-04-29 15:08:08,198 - src.models.excel_filter - INFO - excel_filter.py:197 - 匹配集合加载完成，共 69 个唯一值，示例: ['LC1HNYBJ3R0008441', 'LC1HNYBJ7R0008569', 'LC1HNYBJ5R0008425', 'LC1HNYBJ7R0008443', 'LC1HNYBJ8R0008449', 'LC1HNYBJXR0008436', 'LC1HNYBJ9R0008444', 'LC1HNYBJ0R0008445', 'LC1HNYBJ0R0008431', 'LC1HNYBJ6R0007459']
+2026-04-29 15:08:08,198 - src.models.excel_filter - INFO - excel_filter.py:69 - 外部匹配集合加载完成，共 69 个唯一值
+2026-04-29 15:08:10,292 - src.models.excel_filter - INFO - excel_filter.py:146 - 已处理: C:/Users/86546/Desktop/新建文件夹/1-31.xlsx -> Sheet: LC1HNYBJ5R0008442
+2026-04-29 15:08:12,376 - src.models.excel_filter - INFO - excel_filter.py:146 - 已处理: C:/Users/86546/Desktop/新建文件夹/2.1-2.28.xlsx -> Sheet: LC1HNYBJXR0008436
+2026-04-29 15:08:12,489 - src.models.excel_filter - INFO - excel_filter.py:171 - ExcelWriter 已关闭，文件保存至: C:/Users/86546/Desktop/新建文件夹/测试1-2.xlsx
+2026-04-29 15:15:12,544 - src.models.excel_filter - INFO - excel_filter.py:197 - 匹配集合加载完成，共 69 个唯一值，示例: ['LC1HNYBJ3R0008441', 'LC1HNYBJ7R0008569', 'LC1HNYBJ5R0008425', 'LC1HNYBJ7R0008443', 'LC1HNYBJ8R0008449', 'LC1HNYBJXR0008436', 'LC1HNYBJ9R0008444', 'LC1HNYBJ0R0008445', 'LC1HNYBJ0R0008431', 'LC1HNYBJ6R0007459']
+2026-04-29 15:15:12,545 - src.models.excel_filter - INFO - excel_filter.py:69 - 外部匹配集合加载完成，共 69 个唯一值
+2026-04-29 15:15:15,132 - src.models.excel_filter - INFO - excel_filter.py:146 - 已处理: C:/Users/86546/Desktop/新建文件夹/1-31.xlsx -> Sheet: 1
+2026-04-29 15:15:17,709 - src.models.excel_filter - INFO - excel_filter.py:146 - 已处理: C:/Users/86546/Desktop/新建文件夹/2.1-2.28.xlsx -> Sheet: 2
+2026-04-29 15:15:17,826 - src.models.excel_filter - INFO - excel_filter.py:171 - ExcelWriter 已关闭，文件保存至: C:/Users/86546/Desktop/新建文件夹/测试1-2.xlsx
