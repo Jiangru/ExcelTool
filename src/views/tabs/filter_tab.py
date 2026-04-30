@@ -35,6 +35,8 @@ class FilterTab(QWidget):
         layout = QVBoxLayout(self)
         layout.setSpacing(10)   # 主布局垂直间距
         layout.setContentsMargins(10, 10, 10, 10)  # 整体边距
+        layout.setContentsMargins(0, 0, 0, 0)   # 去掉内边距
+        layout.setSpacing(5)                    # 保留适度间距
 
         # ---------- 1. 文件选择区 ----------
         file_group = QGroupBox("1. 选择多个Excel文件")
@@ -54,7 +56,8 @@ class FilterTab(QWidget):
         btn_layout.addWidget(self.btn_add_files)
         btn_layout.addWidget(self.btn_remove_selected)
         btn_layout.addWidget(self.btn_clear_all)
-        btn_layout.addStretch()
+        # btn_layout.addStretch()  # 添加伸缩布局，使按钮垂直居中
+
         file_layout.addLayout(btn_layout)
         file_group.setLayout(file_layout)
 

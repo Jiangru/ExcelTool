@@ -9,9 +9,9 @@ logger = setup_logger(__name__)
 
 
 class ExcelFilter:
-    """多文件筛选与汇总业务类"""
+    """多文件筛选与汇总业务类（支持按列分组导出多个Sheet）"""
 
-    # 运算符映射到pandas查询表达式
+    # 运算符映射（保留备用）
     OPERATOR_MAP = {
         '等于': '==',
         '不等于': '!=',
@@ -28,178 +28,154 @@ class ExcelFilter:
     @classmethod
     def filter_and_export(cls, file_paths, conditions, sheet_name_col,
                           sum_columns, output_path,
-                          match_config=None, # 外部匹配配置
+                          match_config=None,
                           progress_callback=None):
         """
-        批量筛选文件并导出为多sheet工作簿
+        批量筛选文件，并按指定列的值分组导出到多个Sheet（相同值放在同一个Sheet）
         :param file_paths: list of str, 输入文件路径列表
-        :param conditions: list of dict, 筛选条件，格式：
-            [{'column': '列名', 'operator': '等于', 'value': '值', 'logic': 'AND'}, ...]
-            logic 字段目前保留，后续可实现复杂组合，当前所有条件用AND连接
-        :param sheet_name_col: str, 用作sheet名称的列名
-        :param sum_columns: list of str, 需要格式化为数字并求和的列名
+        :param conditions: list of dict, 筛选条件
+        :param sheet_name_col: str, 用于分组的列名，该列的不同值将作为Sheet名称
+        :param sum_columns: list of str, 需要格式化为数字并求和的列名（在每个Sheet内分别求和）
         :param output_path: str, 输出文件路径
+        :param match_config: dict, 外部匹配配置 {'match_file', 'source_column', 'target_column', 'mode'}
         :param progress_callback: function, 进度回调函数，接收当前进度百分比
         :return: str, 输出文件路径
         """
-        # 安全包装进度回调
         def safe_progress(value):
             try:
                 if progress_callback is not None:
-                    int_value = int(value)
-                    progress_callback(int_value)
+                    progress_callback(int(value))
             except Exception as e:
                 logger.error(f"进度回调异常: {e}, value={value}", exc_info=True)
 
-        writer = None
-        # total_files = len(file_paths)
-        has_any_sheet = False   # 新增：标记是否已写入至少一个sheet
-
-        # --- 预处理外部匹配集合（如果启用）---
+        # 1. 加载外部匹配集合（如果启用）
         match_set = None
-        try:
-            writer = pd.ExcelWriter(output_path, engine='openpyxl')
-            total_files = len(file_paths)
-            if match_config:
-                try:
-                    match_set = cls._load_match_set(
-                        match_config['match_file'],
-                        match_config['target_column']
-                    )
-                    logger.info(f"外部匹配集合加载完成，共 {len(match_set)} 个唯一值")
-                except Exception as e:
-                    logger.error(f"加载匹配文件失败: {e}")
-                    raise ValueError(f"匹配文件处理失败: {e}")
-            
-            for idx, file_path in enumerate(file_paths):
-                try:
-                    # 读取Excel
-                    df = cls._read_excel(file_path)
-                    if df.empty:
-                        logger.warning(f"文件为空，跳过: {file_path}")
-                        continue
+        if match_config:
+            try:
+                match_set = cls._load_match_set(
+                    match_config['match_file'],
+                    match_config['target_column']
+                )
+                logger.info(f"外部匹配集合加载完成，共 {len(match_set)} 个唯一值")
+            except Exception as e:
+                logger.error(f"加载匹配文件失败: {e}")
+                raise ValueError(f"匹配文件处理失败: {e}")
 
-                    # 应用常规条件筛选
-                    df_filtered = cls._apply_conditions(df, conditions)
+        # 2. 遍历所有文件，收集筛选后的数据
+        all_filtered_dfs = []
+        total_files = len(file_paths)
 
-                    # --- 应用外部匹配条件（如果有）---
-                    if match_set is not None and match_config:
-                        source_col = match_config['source_column']
-                        mode = match_config['mode']
-                        if source_col not in df_filtered.columns:
-                            logger.warning(f"原文件缺少匹配列 {source_col}，跳过外部匹配条件")
-                        else:
-                            # 将原文件匹配列转为字符串（与集合中存储的类型一致）
-                            series = df_filtered[source_col].astype(str).str.strip()
-                            if mode == 'keep':
-                                mask = series.isin(match_set)
-                            else:  # 'remove'
-                                mask = ~series.isin(match_set)
-                            df_filtered = df_filtered[mask]
-
-                    if df_filtered.empty:
-                        logger.warning(f"文件筛选后无数据: {file_path}")
-                        # 仍然创建空sheet？这里选择跳过
-                        continue
-
-                    # 格式化数字列并计算合计
-                    df_formatted, sums = cls._format_and_sum(df_filtered, sum_columns)
-
-                    # 确定sheet名称
-                    sheet_name = cls._generate_sheet_name(df_filtered, sheet_name_col, idx + 1)
-
-                    output_dir = Path(output_path).parent
-                    output_dir.mkdir(parents=True, exist_ok=True)
-
-                    # 写入Excel
-                    df_formatted.to_excel(writer, sheet_name=sheet_name, index=False)
-
-                    # --- 添加合计行（仅当有求和列时）---
-                    if sum_columns:
-                        # 获取当前数据表的所有列名（保持顺序）
-                        columns = df_formatted.columns.tolist()
-                        # 构造一行与表头列数相同的空行
-                        total_row = {col: "" for col in columns}
-                        
-                        # 在第一列写入"合计"标签
-                        if columns:
-                            total_row[columns[0]] = "合计"
-                        
-                        # 将计算好的合计值填入对应的求和列
-                        for col in sum_columns:
-                            if col in total_row and col in sums:
-                                total_row[col] = sums[col]
-                        
-                        # 转换为单行 DataFrame
-                        total_df = pd.DataFrame([total_row])
-                        
-                        # 计算起始行：数据行从第1行开始（第0行为表头），合计行应放在数据最后一行之后
-                        startrow = len(df_formatted) + 1
-                        
-                        # 写入合计行（不写入索引和表头）
-                        total_df.to_excel(writer, sheet_name=sheet_name,
-                                        startrow=startrow, index=False, header=False)
-
-                    # 标记已写入至少一个sheet
-                    has_any_sheet = True
-
-                    logger.info(f"已处理: {file_path} -> Sheet: {sheet_name}")
-
-                except Exception as e:
-                    logger.exception(f"处理文件失败 {file_path}: {e}")
-                    # 继续处理下一个文件，不中断整个任务
+        for idx, file_path in enumerate(file_paths):
+            try:
+                # 读取Excel
+                df = cls._read_excel(file_path)
+                if df.empty:
+                    logger.warning(f"文件为空，跳过: {file_path}")
                     continue
 
-                # 更新进度
-                if progress_callback:
-                    progress = int((idx + 1) / total_files * 100)
-                    safe_progress(progress)
+                # 应用常规条件筛选
+                df_filtered = cls._apply_conditions(df, conditions)
 
-            # 如果没有写入任何工作表，创建一个空白工作表
-            if not has_any_sheet:
-                logger.warning("所有文件均无符合条件的数据，将创建一个空白工作表")
-                empty_df = pd.DataFrame()
-                empty_df.to_excel(writer, sheet_name="无数据", index=False)
-        except Exception as e:
-            logger.exception("数据写入过程中发生异常")
-            raise  # 重新抛出，由上层线程捕获并触发 error_callback
-        finally:
-            # 无论是否发生异常，都尝试关闭 writer（保存文件）
-            if writer is not None:
-                try:
-                    writer.close()
-                    logger.info(f"ExcelWriter 已关闭，文件保存至: {output_path}")
-                except Exception as close_err:
-                    logger.error(f"关闭 ExcelWriter 时出错: {close_err}")
-                    # 如果文件已成功写入但关闭失败，我们仍向上层报告“成功”，仅记录错误
-                    # 但此时无法再抛出异常，因为 finally 中 raise 会覆盖原始异常
-                    # 解决方案：将关闭异常暂存，优先抛出数据写入异常
-                    if 'e' not in locals():  # 如果没有数据写入异常，则关闭异常成为主要错误
-                        raise close_err
+                # 应用外部匹配条件
+                if match_set is not None and match_config:
+                    source_col = match_config['source_column']
+                    mode = match_config['mode']
+                    if source_col not in df_filtered.columns:
+                        logger.warning(f"原文件缺少匹配列 {source_col}，跳过外部匹配条件")
                     else:
-                        logger.warning("数据已写入，但文件关闭失败，请检查文件是否被占用")
+                        # 将匹配列转为字符串并去除首尾空格
+                        series = df_filtered[source_col].astype(str).str.strip()
+                        if mode == 'keep':
+                            mask = series.isin(match_set)
+                        else:  # 'remove'
+                            mask = ~series.isin(match_set)
+                        df_filtered = df_filtered[mask]
 
-            # writer.close()
-            # logger.info(f"筛选汇总完成，输出文件: {output_path}")
+                if df_filtered.empty:
+                    logger.warning(f"文件筛选后无数据，跳过: {file_path}")
+                    continue
+
+                all_filtered_dfs.append(df_filtered)
+                logger.info(f"已处理: {file_path} -> 增加 {len(df_filtered)} 行")
+
+            except Exception as e:
+                logger.exception(f"处理文件失败 {file_path}: {e}")
+                continue
+
+            # 更新进度
+            safe_progress(int((idx + 1) / total_files * 100))
+
+        # 3. 合并所有筛选后的数据
+        if not all_filtered_dfs:
+            logger.warning("所有文件均无符合条件的数据，将创建一个空白工作表")
+            final_df = pd.DataFrame()
+        else:
+            final_df = pd.concat(all_filtered_dfs, ignore_index=True)
+            logger.info(f"合并后共 {len(final_df)} 行数据")
+
+        # 4. 输出Excel
+        output_dir = Path(output_path).parent
+        output_dir.mkdir(parents=True, exist_ok=True)
+
+        # 判断是否启用分组导出
+        enable_grouping = (sheet_name_col and sheet_name_col in final_df.columns and not final_df.empty)
+        if not enable_grouping:
+            # 未启用分组：全部数据写入一个Sheet
+            logger.info("未指定分组列或分组列不存在，将全部数据写入单个Sheet")
+            df_formatted, total_sums = cls._format_and_sum(final_df, sum_columns)
+            with pd.ExcelWriter(output_path, engine='openpyxl') as writer:
+                df_formatted.to_excel(writer, sheet_name="筛选汇总", index=False)
+                if sum_columns and not df_formatted.empty:
+                    cls._add_total_row(writer, "筛选汇总", df_formatted, sum_columns, total_sums)
+            return output_path
+
+        # 启用分组：按 sheet_name_col 分组导出多个Sheet
+        grouped = final_df.groupby(sheet_name_col)
+        logger.info(f"按列 '{sheet_name_col}' 分组，共 {len(grouped)} 个组")
+
+        with pd.ExcelWriter(output_path, engine='openpyxl') as writer:
+            for group_value, group_df in grouped:
+                # 生成合法的Sheet名称
+                sheet_name = cls._sanitize_sheet_name(str(group_value))
+                # 格式化数字列并计算该组的总和
+                group_formatted, group_sums = cls._format_and_sum(group_df, sum_columns)
+                # 写入该组数据
+                group_formatted.to_excel(writer, sheet_name=sheet_name, index=False)
+                # 添加该组的合计行
+                if sum_columns and not group_formatted.empty:
+                    cls._add_total_row(writer, sheet_name, group_formatted, sum_columns, group_sums)
+                logger.info(f"写入Sheet: {sheet_name}，共 {len(group_df)} 行")
+
+        logger.info(f"分组导出完成，输出文件: {output_path}")
         return output_path
-    
+
+    # ----------------------------------------------------------------------
+    # 辅助方法
+    # ----------------------------------------------------------------------
     @classmethod
     def _load_match_set(cls, match_file, column):
-        """读取匹配文件指定列，返回去重后的字符串集合"""
-        df = cls._read_excel(match_file)
-        if column not in df.columns:
-            raise ValueError(f"匹配文件中不存在列: {column}")
-        # 去除空值，转为字符串，去重
-        values = df[column].dropna().astype(str).str.strip().unique()
-        match_set = set(values)
-        # 记录日志（前10个值）
-        sample = list(match_set)[:10]
-        logger.info(f"匹配集合加载完成，共 {len(match_set)} 个唯一值，示例: {sample}")
-        
-        if len(match_set) == 0:
-            logger.warning("匹配集合为空！请检查匹配文件列是否包含有效数据。")
-        
-        return match_set
+        """读取匹配文件（所有Sheet）指定列，返回去重后的字符串集合"""
+        try:
+            xl = pd.ExcelFile(match_file)
+            all_values = []
+            for sheet_name in xl.sheet_names:
+                # 假设每个Sheet的第一行为列名
+                df = pd.read_excel(match_file, sheet_name=sheet_name, header=0)
+                if column in df.columns:
+                    values = df[column].dropna().astype(str).str.strip()
+                    all_values.append(values)
+                    logger.debug(f"从 sheet '{sheet_name}' 读取到 {len(values)} 个值")
+                else:
+                    logger.warning(f"Sheet '{sheet_name}' 中缺少列 '{column}'，已跳过")
+            if not all_values:
+                raise ValueError(f"在所有Sheet中均未找到列 '{column}'")
+            combined = pd.concat(all_values, ignore_index=True)
+            match_set = set(combined)
+            logger.info(f"匹配集合加载完成，共 {len(match_set)} 个唯一值（来源于 {len(xl.sheet_names)} 个Sheet）")
+            return match_set
+        except Exception as e:
+            logger.error(f"加载匹配文件失败: {e}")
+            raise
 
     @staticmethod
     def _read_excel(file_path):
@@ -222,7 +198,6 @@ class ExcelFilter:
                 logger.warning(f"列 {col} 不存在，跳过该条件")
                 continue
 
-            # 根据运算符构造布尔索引
             if op == '等于':
                 mask &= (df[col] == val)
             elif op == '不等于':
@@ -252,26 +227,33 @@ class ExcelFilter:
         sums = {}
         for col in sum_columns:
             if col in df.columns:
-                # 转换为数值，无法转换的变为NaN
                 df[col] = pd.to_numeric(df[col], errors='coerce')
-                # 计算总和
-                total = df[col].sum()
-                sums[col] = total
+                sums[col] = df[col].sum()
             else:
                 sums[col] = None
         return df, sums
 
     @staticmethod
-    def _generate_sheet_name(df, col_name, default_index):
-        """根据列的第一个非空值生成sheet名，最多31字符（Excel限制）"""
-        if col_name and col_name in df.columns:
-            # 获取第一个非空值
-            first_valid = df[col_name].dropna().iloc[0] if not df[col_name].dropna().empty else None
-            if first_valid is not None:
-                name = str(first_valid)[:31]  # Excel sheet名最大长度31
-                # 去除非法字符
-                invalid_chars = r'[]:*?\/\\'
-                for ch in invalid_chars:
-                    name = name.replace(ch, '_')
-                return name if name else f"Sheet{default_index}"
-        return f"Sheet{default_index}"
+    def _sanitize_sheet_name(name):
+        """清理Sheet名称中的非法字符，并限制长度31"""
+        invalid_chars = r'[]:*?/\\'
+        for ch in invalid_chars:
+            name = name.replace(ch, '_')
+        if len(name) > 31:
+            name = name[:31]
+        return name if name else "Sheet"
+
+    @classmethod
+    def _add_total_row(cls, writer, sheet_name, df, sum_columns, sums):
+        """在指定sheet中添加合计行"""
+        columns = df.columns.tolist()
+        total_row = {col: "" for col in columns}
+        if columns:
+            total_row[columns[0]] = "合计"
+        for col in sum_columns:
+            if col in total_row and col in sums:
+                total_row[col] = sums[col]
+        total_df = pd.DataFrame([total_row])
+        startrow = len(df) + 1
+        total_df.to_excel(writer, sheet_name=sheet_name,
+                          startrow=startrow, index=False, header=False)

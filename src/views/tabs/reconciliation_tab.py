@@ -33,7 +33,8 @@ class ReconciliationTab(QWidget):
 
     def setup_ui(self):
         layout = QVBoxLayout(self)
-        layout.setSpacing(15)
+        layout.setContentsMargins(0, 0, 0, 0)   # 去掉内边距
+        layout.setSpacing(5)                    # 保留适度间距
 
         # ---------- 1. 左右文件选择区 ----------
         file_layout = QHBoxLayout()
@@ -162,7 +163,7 @@ class ReconciliationTab(QWidget):
         self.start_btn.setMinimumHeight(40)
         layout.addWidget(self.start_btn)
 
-        layout.addStretch()
+        # layout.addStretch()
 
     # ---------- 文件选择 ----------
     def _select_file(self, side):

@@ -954,3 +954,285 @@ PermissionError: [Errno 13] Permission denied: 'C:/Users/86546/Desktop/新建文
 2026-04-29 15:15:15,132 - src.models.excel_filter - INFO - excel_filter.py:146 - 已处理: C:/Users/86546/Desktop/新建文件夹/1-31.xlsx -> Sheet: 1
 2026-04-29 15:15:17,709 - src.models.excel_filter - INFO - excel_filter.py:146 - 已处理: C:/Users/86546/Desktop/新建文件夹/2.1-2.28.xlsx -> Sheet: 2
 2026-04-29 15:15:17,826 - src.models.excel_filter - INFO - excel_filter.py:171 - ExcelWriter 已关闭，文件保存至: C:/Users/86546/Desktop/新建文件夹/测试1-2.xlsx
+2026-04-30 09:04:39,073 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-04-30 09:17:45,240 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-04-30 09:18:25,059 - src.views.tabs.filter_tab - WARNING - filter_tab.py:446 - 第1行条件「月份 等于」未填写值，已自动忽略
+2026-04-30 09:18:25,092 - src.models.excel_filter - DEBUG - excel_filter.py:167 - 从 sheet 'Sheet1' 读取到 69 个值
+2026-04-30 09:18:25,100 - src.models.excel_filter - WARNING - excel_filter.py:169 - Sheet 'Sheet2' 中缺少列 'VIN码'，已跳过
+2026-04-30 09:18:25,108 - src.models.excel_filter - WARNING - excel_filter.py:169 - Sheet 'Sheet3' 中缺少列 'VIN码'，已跳过
+2026-04-30 09:18:25,109 - src.models.excel_filter - INFO - excel_filter.py:174 - 匹配集合加载完成，共 69 个唯一值（来源于 3 个Sheet）
+2026-04-30 09:18:25,109 - src.models.excel_filter - INFO - excel_filter.py:59 - 外部匹配集合加载完成，共 69 个唯一值
+2026-04-30 09:18:37,492 - src.models.excel_filter - INFO - excel_filter.py:99 - 已处理: C:/Users/86546/Desktop/新建文件夹/2025年度总表.xlsx -> 增加 19549 行
+2026-04-30 09:18:37,492 - src.models.excel_filter - INFO - excel_filter.py:114 - 合并后共 19549 行数据
+2026-04-30 09:18:37,496 - src.models.excel_filter - INFO - excel_filter.py:134 - 按列 '充电VIN' 分组，共 69 个组
+2026-04-30 09:18:37,532 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ0R0002788，共 445 行
+2026-04-30 09:18:37,536 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ0R0007456，共 98 行
+2026-04-30 09:18:37,545 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ0R0008428，共 309 行
+2026-04-30 09:18:37,551 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ0R0008431，共 155 行
+2026-04-30 09:18:37,562 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ0R0008445，共 374 行
+2026-04-30 09:18:37,571 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ0R0008574，共 288 行
+2026-04-30 09:18:37,580 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ0R0022362，共 328 行
+2026-04-30 09:18:37,590 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ1R0006154，共 326 行
+2026-04-30 09:18:37,599 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ1R0008437，共 323 行
+2026-04-30 09:18:37,604 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ1R0008440，共 165 行
+2026-04-30 09:18:37,608 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ1R0008454，共 124 行
+2026-04-30 09:18:37,618 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ1R0008566，共 342 行
+2026-04-30 09:18:37,630 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ1R0022368，共 406 行
+2026-04-30 09:18:37,637 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ1R0022371，共 235 行
+2026-04-30 09:18:37,650 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ2R0002775，共 307 行
+2026-04-30 09:18:37,655 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ2R0007457，共 134 行
+2026-04-30 09:18:37,663 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ2R0007460，共 302 行
+2026-04-30 09:18:37,674 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ2R0008429，共 361 行
+2026-04-30 09:18:37,678 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ2R0008432，共 118 行
+2026-04-30 09:18:37,680 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ2R0008446，共 26 行
+2026-04-30 09:18:37,689 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ2R0008575，共 341 行
+2026-04-30 09:18:37,698 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ2R0022346，共 285 行
+2026-04-30 09:18:37,703 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ3R0008438，共 166 行
+2026-04-30 09:18:37,712 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ3R0008441，共 320 行
+2026-04-30 09:18:37,725 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ3R0008567，共 341 行
+2026-04-30 09:18:37,734 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ3R0008570，共 324 行
+2026-04-30 09:18:37,746 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ3R0009024，共 385 行
+2026-04-30 09:18:37,757 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ3R0022355，共 316 行
+2026-04-30 09:18:37,766 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ3R0022372，共 301 行
+2026-04-30 09:18:37,773 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ4R0007458，共 245 行
+2026-04-30 09:18:37,778 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ4R0007461，共 127 行
+2026-04-30 09:18:37,784 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ4R0008433，共 182 行
+2026-04-30 09:18:37,789 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ4R0008447，共 114 行
+2026-04-30 09:18:37,799 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ4R0008450，共 350 行
+2026-04-30 09:18:37,812 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ4R0022378，共 405 行
+2026-04-30 09:18:37,822 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ5R0004259，共 304 行
+2026-04-30 09:18:37,828 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ5R0008425，共 164 行
+2026-04-30 09:18:37,835 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ5R0008439，共 169 行
+2026-04-30 09:18:37,859 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ5R0008442，共 358 行
+2026-04-30 09:18:37,868 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ5R0008568，共 302 行
+2026-04-30 09:18:37,877 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ5R0008571，共 289 行
+2026-04-30 09:18:37,883 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ6R0007459，共 145 行
+2026-04-30 09:18:37,894 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ6R0007462，共 375 行
+2026-04-30 09:18:37,906 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ6R0008434，共 399 行
+2026-04-30 09:18:37,915 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ6R0008448，共 325 行
+2026-04-30 09:18:37,925 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ6R0008451，共 298 行
+2026-04-30 09:18:37,935 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ6R0009034，共 319 行
+2026-04-30 09:18:37,945 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ7R0007454，共 328 行
+2026-04-30 09:18:37,955 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ7R0008426，共 306 行
+2026-04-30 09:18:37,960 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ7R0008443，共 154 行
+2026-04-30 09:18:37,970 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ7R0008569，共 323 行
+2026-04-30 09:18:37,980 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ7R0008572，共 349 行
+2026-04-30 09:18:37,998 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ7R0022357，共 626 行
+2026-04-30 09:18:38,010 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ7R0022391，共 382 行
+2026-04-30 09:18:38,016 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ8R0007463，共 161 行
+2026-04-30 09:18:38,021 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ8R0008435，共 151 行
+2026-04-30 09:18:38,028 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ8R0008449，共 217 行
+2026-04-30 09:18:38,039 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ8R0008452，共 352 行
+2026-04-30 09:18:38,050 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ8R0022366，共 346 行
+2026-04-30 09:18:38,060 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ9R0007455，共 304 行
+2026-04-30 09:18:38,069 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ9R0008427，共 284 行
+2026-04-30 09:18:38,080 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ9R0008430，共 337 行
+2026-04-30 09:18:38,090 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ9R0008444，共 321 行
+2026-04-30 09:18:38,100 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ9R0008573，共 333 行
+2026-04-30 09:18:38,110 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJXR0002765，共 315 行
+2026-04-30 09:18:38,118 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJXR0008436，共 254 行
+2026-04-30 09:18:38,124 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJXR0008453，共 159 行
+2026-04-30 09:18:38,135 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJXR0022353，共 385 行
+2026-04-30 09:18:38,146 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJXR0022367，共 347 行
+2026-04-30 09:18:39,251 - src.models.excel_filter - INFO - excel_filter.py:149 - 分组导出完成，输出文件: C:/Users/86546/Desktop/新建文件夹/博瑞所有.xlsx
+2026-04-30 09:20:48,006 - src.views.tabs.filter_tab - WARNING - filter_tab.py:446 - 第1行条件「月份 等于」未填写值，已自动忽略
+2026-04-30 09:20:48,037 - src.models.excel_filter - DEBUG - excel_filter.py:167 - 从 sheet 'Sheet1' 读取到 69 个值
+2026-04-30 09:20:48,049 - src.models.excel_filter - WARNING - excel_filter.py:169 - Sheet 'Sheet2' 中缺少列 'VIN码'，已跳过
+2026-04-30 09:20:48,057 - src.models.excel_filter - WARNING - excel_filter.py:169 - Sheet 'Sheet3' 中缺少列 'VIN码'，已跳过
+2026-04-30 09:20:48,057 - src.models.excel_filter - INFO - excel_filter.py:174 - 匹配集合加载完成，共 69 个唯一值（来源于 3 个Sheet）
+2026-04-30 09:20:48,058 - src.models.excel_filter - INFO - excel_filter.py:59 - 外部匹配集合加载完成，共 69 个唯一值
+2026-04-30 09:21:00,592 - src.models.excel_filter - INFO - excel_filter.py:99 - 已处理: C:/Users/86546/Desktop/新建文件夹/2025年度总表.xlsx -> 增加 19549 行
+2026-04-30 09:21:00,592 - src.models.excel_filter - INFO - excel_filter.py:114 - 合并后共 19549 行数据
+2026-04-30 09:21:00,597 - src.models.excel_filter - INFO - excel_filter.py:134 - 按列 '充电站名称' 分组，共 4 个组
+2026-04-30 09:21:00,625 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: 浙江-湖州-安吉片区-鞍山充电站（站外），共 841 行
+2026-04-30 09:21:00,705 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: 浙江-湖州-安吉片区-鞍山重卡充电站（站外），共 2991 行
+2026-04-30 09:21:00,982 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: 浙江-湖州-安吉鞍山重卡充电站，共 9302 行
+2026-04-30 09:21:01,149 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: 绿能科技——鞍山站，共 6415 行
+2026-04-30 09:21:02,190 - src.models.excel_filter - INFO - excel_filter.py:149 - 分组导出完成，输出文件: C:/Users/86546/Desktop/新建文件夹/充电站模式博瑞所有.xlsx
+2026-04-30 09:23:27,784 - src.views.tabs.filter_tab - WARNING - filter_tab.py:446 - 第1行条件「月份 等于」未填写值，已自动忽略
+2026-04-30 09:23:27,812 - src.models.excel_filter - DEBUG - excel_filter.py:167 - 从 sheet 'Sheet1' 读取到 69 个值
+2026-04-30 09:23:27,820 - src.models.excel_filter - WARNING - excel_filter.py:169 - Sheet 'Sheet2' 中缺少列 'VIN码'，已跳过
+2026-04-30 09:23:27,827 - src.models.excel_filter - WARNING - excel_filter.py:169 - Sheet 'Sheet3' 中缺少列 'VIN码'，已跳过
+2026-04-30 09:23:27,828 - src.models.excel_filter - INFO - excel_filter.py:174 - 匹配集合加载完成，共 69 个唯一值（来源于 3 个Sheet）
+2026-04-30 09:23:27,828 - src.models.excel_filter - INFO - excel_filter.py:59 - 外部匹配集合加载完成，共 69 个唯一值
+2026-04-30 09:23:29,200 - src.models.excel_filter - INFO - excel_filter.py:99 - 已处理: C:/Users/86546/Desktop/新建文件夹/1-31.xlsx -> 增加 515 行
+2026-04-30 09:23:30,493 - src.models.excel_filter - INFO - excel_filter.py:99 - 已处理: C:/Users/86546/Desktop/新建文件夹/2.1-2.28.xlsx -> 增加 381 行
+2026-04-30 09:23:32,282 - src.models.excel_filter - INFO - excel_filter.py:99 - 已处理: C:/Users/86546/Desktop/新建文件夹/3.1-3.31.xlsx -> 增加 1550 行
+2026-04-30 09:23:34,566 - src.models.excel_filter - INFO - excel_filter.py:99 - 已处理: C:/Users/86546/Desktop/新建文件夹/4.1-4.30.xlsx -> 增加 1627 行
+2026-04-30 09:23:37,094 - src.models.excel_filter - INFO - excel_filter.py:99 - 已处理: C:/Users/86546/Desktop/新建文件夹/5.1-5.31.xlsx -> 增加 2255 行
+2026-04-30 09:23:37,320 - src.models.excel_filter - INFO - excel_filter.py:99 - 已处理: C:/Users/86546/Desktop/新建文件夹/6.1-6.3.xlsx -> 增加 87 行
+2026-04-30 09:23:37,750 - src.models.excel_filter - INFO - excel_filter.py:99 - 已处理: C:/Users/86546/Desktop/新建文件夹/鞍山6.3-6.30.xlsx -> 增加 1486 行
+2026-04-30 09:23:38,256 - src.models.excel_filter - INFO - excel_filter.py:99 - 已处理: C:/Users/86546/Desktop/新建文件夹/鞍山7月.xlsx -> 增加 1958 行
+2026-04-30 09:23:38,761 - src.models.excel_filter - INFO - excel_filter.py:99 - 已处理: C:/Users/86546/Desktop/新建文件夹/鞍山8月.xlsx -> 增加 1689 行
+2026-04-30 09:23:39,286 - src.models.excel_filter - INFO - excel_filter.py:99 - 已处理: C:/Users/86546/Desktop/新建文件夹/鞍山9月.xlsx -> 增加 2200 行
+2026-04-30 09:23:39,788 - src.models.excel_filter - INFO - excel_filter.py:99 - 已处理: C:/Users/86546/Desktop/新建文件夹/鞍山10月.xlsx -> 增加 1999 行
+2026-04-30 09:23:40,384 - src.models.excel_filter - INFO - excel_filter.py:99 - 已处理: C:/Users/86546/Desktop/新建文件夹/鞍山11月.xlsx -> 增加 2316 行
+2026-04-30 09:23:41,010 - src.models.excel_filter - INFO - excel_filter.py:99 - 已处理: C:/Users/86546/Desktop/新建文件夹/鞍山12月.xlsx -> 增加 1486 行
+2026-04-30 09:23:41,014 - src.models.excel_filter - INFO - excel_filter.py:114 - 合并后共 19549 行数据
+2026-04-30 09:23:41,016 - src.models.excel_filter - INFO - excel_filter.py:134 - 按列 '充电VIN' 分组，共 69 个组
+2026-04-30 09:23:41,033 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ0R0002788，共 445 行
+2026-04-30 09:23:41,039 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ0R0007456，共 98 行
+2026-04-30 09:23:41,065 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ0R0008428，共 309 行
+2026-04-30 09:23:41,084 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ0R0008431，共 155 行
+2026-04-30 09:23:41,095 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ0R0008445，共 374 行
+2026-04-30 09:23:41,106 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ0R0008574，共 288 行
+2026-04-30 09:23:41,123 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ0R0022362，共 328 行
+2026-04-30 09:23:41,134 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ1R0006154，共 326 行
+2026-04-30 09:23:41,144 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ1R0008437，共 323 行
+2026-04-30 09:23:41,149 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ1R0008440，共 165 行
+2026-04-30 09:23:41,155 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ1R0008454，共 124 行
+2026-04-30 09:23:41,173 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ1R0008566，共 342 行
+2026-04-30 09:23:41,189 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ1R0022368，共 406 行
+2026-04-30 09:23:41,196 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ1R0022371，共 235 行
+2026-04-30 09:23:41,206 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ2R0002775，共 307 行
+2026-04-30 09:23:41,214 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ2R0007457，共 134 行
+2026-04-30 09:23:41,225 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ2R0007460，共 302 行
+2026-04-30 09:23:41,236 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ2R0008429，共 361 行
+2026-04-30 09:23:41,240 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ2R0008432，共 118 行
+2026-04-30 09:23:41,243 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ2R0008446，共 26 行
+2026-04-30 09:23:41,255 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ2R0008575，共 341 行
+2026-04-30 09:23:41,263 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ2R0022346，共 285 行
+2026-04-30 09:23:41,269 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ3R0008438，共 166 行
+2026-04-30 09:23:41,278 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ3R0008441，共 320 行
+2026-04-30 09:23:41,288 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ3R0008567，共 341 行
+2026-04-30 09:23:41,303 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ3R0008570，共 324 行
+2026-04-30 09:23:41,315 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ3R0009024，共 385 行
+2026-04-30 09:23:41,324 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ3R0022355，共 316 行
+2026-04-30 09:23:41,333 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ3R0022372，共 301 行
+2026-04-30 09:23:41,344 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ4R0007458，共 245 行
+2026-04-30 09:23:41,354 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ4R0007461，共 127 行
+2026-04-30 09:23:41,360 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ4R0008433，共 182 行
+2026-04-30 09:23:41,365 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ4R0008447，共 114 行
+2026-04-30 09:23:41,376 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ4R0008450，共 350 行
+2026-04-30 09:23:41,405 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ4R0022378，共 405 行
+2026-04-30 09:23:41,414 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ5R0004259，共 304 行
+2026-04-30 09:23:41,420 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ5R0008425，共 164 行
+2026-04-30 09:23:41,426 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ5R0008439，共 169 行
+2026-04-30 09:23:41,437 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ5R0008442，共 358 行
+2026-04-30 09:23:41,447 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ5R0008568，共 302 行
+2026-04-30 09:23:41,456 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ5R0008571，共 289 行
+2026-04-30 09:23:41,462 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ6R0007459，共 145 行
+2026-04-30 09:23:41,473 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ6R0007462，共 375 行
+2026-04-30 09:23:41,485 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ6R0008434，共 399 行
+2026-04-30 09:23:41,495 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ6R0008448，共 325 行
+2026-04-30 09:23:41,515 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ6R0008451，共 298 行
+2026-04-30 09:23:41,525 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ6R0009034，共 319 行
+2026-04-30 09:23:41,536 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ7R0007454，共 328 行
+2026-04-30 09:23:41,545 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ7R0008426，共 306 行
+2026-04-30 09:23:41,550 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ7R0008443，共 154 行
+2026-04-30 09:23:41,565 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ7R0008569，共 323 行
+2026-04-30 09:23:41,576 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ7R0008572，共 349 行
+2026-04-30 09:23:41,596 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ7R0022357，共 626 行
+2026-04-30 09:23:41,607 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ7R0022391，共 382 行
+2026-04-30 09:23:41,615 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ8R0007463，共 161 行
+2026-04-30 09:23:41,620 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ8R0008435，共 151 行
+2026-04-30 09:23:41,635 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ8R0008449，共 217 行
+2026-04-30 09:23:41,647 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ8R0008452，共 352 行
+2026-04-30 09:23:41,657 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ8R0022366，共 346 行
+2026-04-30 09:23:41,666 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ9R0007455，共 304 行
+2026-04-30 09:23:41,681 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ9R0008427，共 284 行
+2026-04-30 09:23:41,692 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ9R0008430，共 337 行
+2026-04-30 09:23:41,701 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ9R0008444，共 321 行
+2026-04-30 09:23:41,712 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ9R0008573，共 333 行
+2026-04-30 09:23:41,728 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJXR0002765，共 315 行
+2026-04-30 09:23:41,736 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJXR0008436，共 254 行
+2026-04-30 09:23:41,742 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJXR0008453，共 159 行
+2026-04-30 09:23:41,755 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJXR0022353，共 385 行
+2026-04-30 09:23:41,766 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJXR0022367，共 347 行
+2026-04-30 09:23:42,894 - src.models.excel_filter - INFO - excel_filter.py:149 - 分组导出完成，输出文件: C:/Users/86546/Desktop/新建文件夹/博瑞12个表格归类.xlsx
+2026-04-30 09:51:10,821 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-04-30 09:51:24,572 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-04-30 09:52:04,744 - src.models.excel_filter - DEBUG - excel_filter.py:167 - 从 sheet 'Sheet1' 读取到 69 个值
+2026-04-30 09:52:04,752 - src.models.excel_filter - WARNING - excel_filter.py:169 - Sheet 'Sheet2' 中缺少列 'VIN码'，已跳过
+2026-04-30 09:52:04,759 - src.models.excel_filter - WARNING - excel_filter.py:169 - Sheet 'Sheet3' 中缺少列 'VIN码'，已跳过
+2026-04-30 09:52:04,759 - src.models.excel_filter - INFO - excel_filter.py:174 - 匹配集合加载完成，共 69 个唯一值（来源于 3 个Sheet）
+2026-04-30 09:52:04,760 - src.models.excel_filter - INFO - excel_filter.py:59 - 外部匹配集合加载完成，共 69 个唯一值
+2026-04-30 09:52:06,072 - src.models.excel_filter - INFO - excel_filter.py:99 - 已处理: C:/Users/86546/Desktop/新建文件夹/1-31.xlsx -> 增加 515 行
+2026-04-30 09:52:07,313 - src.models.excel_filter - INFO - excel_filter.py:99 - 已处理: C:/Users/86546/Desktop/新建文件夹/2.1-2.28.xlsx -> 增加 381 行
+2026-04-30 09:52:09,073 - src.models.excel_filter - INFO - excel_filter.py:99 - 已处理: C:/Users/86546/Desktop/新建文件夹/3.1-3.31.xlsx -> 增加 1550 行
+2026-04-30 09:52:11,286 - src.models.excel_filter - INFO - excel_filter.py:99 - 已处理: C:/Users/86546/Desktop/新建文件夹/4.1-4.30.xlsx -> 增加 1627 行
+2026-04-30 09:52:13,787 - src.models.excel_filter - INFO - excel_filter.py:99 - 已处理: C:/Users/86546/Desktop/新建文件夹/5.1-5.31.xlsx -> 增加 2255 行
+2026-04-30 09:52:14,010 - src.models.excel_filter - INFO - excel_filter.py:99 - 已处理: C:/Users/86546/Desktop/新建文件夹/6.1-6.3.xlsx -> 增加 87 行
+2026-04-30 09:52:14,422 - src.models.excel_filter - INFO - excel_filter.py:99 - 已处理: C:/Users/86546/Desktop/新建文件夹/鞍山6.3-6.30.xlsx -> 增加 1486 行
+2026-04-30 09:52:14,918 - src.models.excel_filter - INFO - excel_filter.py:99 - 已处理: C:/Users/86546/Desktop/新建文件夹/鞍山7月.xlsx -> 增加 1958 行
+2026-04-30 09:52:15,398 - src.models.excel_filter - INFO - excel_filter.py:99 - 已处理: C:/Users/86546/Desktop/新建文件夹/鞍山8月.xlsx -> 增加 1689 行
+2026-04-30 09:52:15,400 - src.models.excel_filter - INFO - excel_filter.py:114 - 合并后共 11548 行数据
+2026-04-30 09:52:15,401 - src.models.excel_filter - INFO - excel_filter.py:134 - 按列 '充电VIN' 分组，共 69 个组
+2026-04-30 09:52:15,415 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ0R0002788，共 356 行
+2026-04-30 09:52:15,417 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ0R0007456，共 13 行
+2026-04-30 09:52:15,422 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ0R0008428，共 158 行
+2026-04-30 09:52:15,423 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ0R0008431，共 14 行
+2026-04-30 09:52:15,429 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ0R0008445，共 182 行
+2026-04-30 09:52:15,433 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ0R0008574，共 144 行
+2026-04-30 09:52:15,441 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ0R0022362，共 265 行
+2026-04-30 09:52:15,450 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ1R0006154，共 279 行
+2026-04-30 09:52:15,455 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ1R0008437，共 155 行
+2026-04-30 09:52:15,457 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ1R0008440，共 42 行
+2026-04-30 09:52:15,458 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ1R0008454，共 28 行
+2026-04-30 09:52:15,464 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ1R0008566，共 152 行
+2026-04-30 09:52:15,474 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ1R0022368，共 344 行
+2026-04-30 09:52:15,480 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ1R0022371，共 202 行
+2026-04-30 09:52:15,488 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ2R0002775，共 259 行
+2026-04-30 09:52:15,489 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ2R0007457，共 30 行
+2026-04-30 09:52:15,495 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ2R0007460，共 185 行
+2026-04-30 09:52:15,501 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ2R0008429，共 186 行
+2026-04-30 09:52:15,503 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ2R0008432，共 22 行
+2026-04-30 09:52:15,504 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ2R0008446，共 26 行
+2026-04-30 09:52:15,510 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ2R0008575，共 175 行
+2026-04-30 09:52:15,521 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ2R0022346，共 228 行
+2026-04-30 09:52:15,524 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ3R0008438，共 71 行
+2026-04-30 09:52:15,529 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ3R0008441，共 162 行
+2026-04-30 09:52:15,534 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ3R0008567，共 154 行
+2026-04-30 09:52:15,540 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ3R0008570，共 167 行
+2026-04-30 09:52:15,550 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ3R0009024，共 331 行
+2026-04-30 09:52:15,558 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ3R0022355，共 269 行
+2026-04-30 09:52:15,565 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ3R0022372，共 243 行
+2026-04-30 09:52:15,570 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ4R0007458，共 144 行
+2026-04-30 09:52:15,572 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ4R0007461，共 45 行
+2026-04-30 09:52:15,575 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ4R0008433，共 59 行
+2026-04-30 09:52:15,577 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ4R0008447，共 29 行
+2026-04-30 09:52:15,581 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ4R0008450，共 107 行
+2026-04-30 09:52:15,592 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ4R0022378，共 339 行
+2026-04-30 09:52:15,600 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ5R0004259，共 245 行
+2026-04-30 09:52:15,603 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ5R0008425，共 66 行
+2026-04-30 09:52:15,607 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ5R0008439，共 93 行
+2026-04-30 09:52:15,613 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ5R0008442，共 180 行
+2026-04-30 09:52:15,618 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ5R0008568，共 167 行
+2026-04-30 09:52:15,624 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ5R0008571，共 149 行
+2026-04-30 09:52:15,627 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ6R0007459，共 50 行
+2026-04-30 09:52:15,634 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ6R0007462，共 199 行
+2026-04-30 09:52:15,641 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ6R0008434，共 223 行
+2026-04-30 09:52:15,647 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ6R0008448，共 192 行
+2026-04-30 09:52:15,652 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ6R0008451，共 133 行
+2026-04-30 09:52:15,661 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ6R0009034，共 282 行
+2026-04-30 09:52:15,666 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ7R0007454，共 143 行
+2026-04-30 09:52:15,671 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ7R0008426，共 126 行
+2026-04-30 09:52:15,674 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ7R0008443，共 57 行
+2026-04-30 09:52:15,680 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ7R0008569，共 152 行
+2026-04-30 09:52:15,686 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ7R0008572，共 172 行
+2026-04-30 09:52:15,702 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ7R0022357，共 510 行
+2026-04-30 09:52:15,713 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ7R0022391，共 319 行
+2026-04-30 09:52:15,728 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ8R0007463，共 62 行
+2026-04-30 09:52:15,731 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ8R0008435，共 64 行
+2026-04-30 09:52:15,736 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ8R0008449，共 127 行
+2026-04-30 09:52:15,742 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ8R0008452，共 178 行
+2026-04-30 09:52:15,751 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ8R0022366，共 290 行
+2026-04-30 09:52:15,758 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ9R0007455，共 183 行
+2026-04-30 09:52:15,763 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ9R0008427，共 139 行
+2026-04-30 09:52:15,769 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ9R0008430，共 160 行
+2026-04-30 09:52:15,774 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ9R0008444，共 155 行
+2026-04-30 09:52:15,780 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJ9R0008573，共 164 行
+2026-04-30 09:52:15,789 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJXR0002765，共 262 行
+2026-04-30 09:52:15,792 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJXR0008436，共 62 行
+2026-04-30 09:52:15,794 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJXR0008453，共 43 行
+2026-04-30 09:52:15,804 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJXR0022353，共 326 行
+2026-04-30 09:52:15,815 - src.models.excel_filter - INFO - excel_filter.py:147 - 写入Sheet: LC1HNYBJXR0022367，共 310 行
+2026-04-30 09:52:16,469 - src.models.excel_filter - INFO - excel_filter.py:149 - 分组导出完成，输出文件: C:\Users\86546\Desktop\筛选汇总_20260430_095204.xlsx
+2026-04-30 09:53:02,543 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-04-30 09:58:04,146 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-04-30 10:03:13,826 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-04-30 10:07:15,010 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-04-30 10:10:47,915 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-04-30 10:12:00,177 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-04-30 10:18:15,723 - ExcelTool - INFO - main.py:18 - 程序启动
+2026-04-30 10:21:28,465 - ExcelTool - INFO - main.py:18 - 程序启动

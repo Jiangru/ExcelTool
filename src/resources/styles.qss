@@ -6,7 +6,7 @@
 }
 
 QMainWindow, QDialog {
-    background-color: #F5F7FA;
+    background-color: #F6F9F7;
 }
 
 /* ========== 标签页 ========== */
@@ -18,24 +18,24 @@ QTabWidget::pane {
 
 QTabBar::tab {
     background: #F0F2F5;
-    border: 1px solid #E0E0E0;
+    border: 1px solid #D9E4DD;
     border-bottom: none;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
     padding: 8px 16px;
     margin-right: 2px;
-    color: #666666;
+    color: #6B8F7D;
 }
 
 QTabBar::tab:selected {
     background: white;
-    color: #2196F3;
-    border-bottom: 2px solid #2196F3;
+    color: #055323;
+    border-bottom: 2px solid #D9E4DD;
 }
 
 QTabBar::tab:hover:selected {
     background: #E3F2FD;
-    color: #1976D2;
+    color: #106B36;
 }
 
 /* ========== 分组框 ========== */
@@ -52,12 +52,12 @@ QGroupBox::title {
     subcontrol-origin: margin;
     left: 10px;
     padding: 0 5px 0 5px;
-    color: #2196F3;
+    color: #055323;
 }
 
 /* ========== 按钮 ========== */
 QPushButton {
-    background-color: #2196F3;
+    background-color: #055323;
     border: none;
     border-radius: 4px;
     padding: 6px 12px;
@@ -66,11 +66,11 @@ QPushButton {
 }
 
 QPushButton:hover {
-    background-color: #1976D2;
+    background-color: #106B36;
 }
 
 QPushButton:pressed {
-    background-color: #0D47A1;
+    background-color: #E8F1EC;
 }
 
 QPushButton:disabled {
@@ -134,15 +134,15 @@ QComboBox::down-arrow {
 
 /* 可选的悬停效果 */
 QComboBox::down-arrow:hover {
-    border-top-color: #2196F3;       /* 悬停时变蓝 */
+    border-top-color: #055323;       /* 悬停时变蓝 */
 }
 
 QComboBox::down-arrow:pressed {
-    border-top-color: #0D47A1;       /* 按下时变蓝 */
+    border-top-color: #106B36;       /* 按下时变蓝 */
 }
 
 QComboBox:on {
-    border-color: #2196F3;
+    border-color: #055323;
 }
 
 QComboBox QAbstractItemView {
@@ -203,17 +203,17 @@ QCheckBox::indicator {
 }
 
 QCheckBox::indicator:checked {
-    background-color: #2196F3;
-    border-color: #2196F3;
+    background-color: #055323;
+    border-color: #055323;
     image: url(:/icons/check.png); /* 如果有打勾图标可设置 */
 }
 
 QCheckBox::indicator:unchecked:hover {
-    border-color: #2196F3;
+    border-color: #055323;
 }
 
 QCheckBox::indicator:checked:hover {
-    background-color: #1976D2;
+    background-color: #106B36;
 }
 
 /* ========== 单选按钮 ========== */
@@ -230,12 +230,12 @@ QRadioButton::indicator {
 }
 
 QRadioButton::indicator:checked {
-    background-color: #2196F3;
-    border-color: #2196F3;
+    background-color: #055323;
+    border-color: #055323;
 }
 
 QRadioButton::indicator:checked:hover {
-    background-color: #1976D2;
+    background-color: #106B36;
 }
 
 /* ========== 进度条 ========== */
@@ -244,6 +244,7 @@ QProgressBar {
     border-radius: 4px;
     text-align: center;
     background-color: #F0F0F0;
+    height: 18px;
 }
 
 QProgressBar::chunk {

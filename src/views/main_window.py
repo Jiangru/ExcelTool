@@ -36,6 +36,8 @@ class MainWindow(QMainWindow):
         central_widget = QWidget()
         self.setCentralWidget(central_widget)
         layout = QVBoxLayout(central_widget)
+        layout.setContentsMargins(0, 0, 0, 0)   # 去除外部边距
+        layout.setSpacing(2)                    # 可选：减小控件间距
 
         # 创建标签页
         self.tab_widget = QTabWidget()
@@ -52,6 +54,21 @@ class MainWindow(QMainWindow):
         self.progress_bar = QProgressBar()
         self.progress_bar.setMaximumWidth(200)
         self.progress_bar.hide()
+        # 美化进度条
+        self.progress_bar.setStyleSheet("""
+            QProgressBar {
+                border: 1px solid #bbb;
+                border-radius: 5px;
+                background-color: #f0f0f0;
+                text-align: center;
+                height: 20px;
+            }
+            QProgressBar::chunk {
+                background-color: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+                                                stop:0 #2196F3, stop:1 #64B5F6);
+                border-radius: 4px;
+            }
+        """)
         self.status_bar.addPermanentWidget(self.progress_bar)
 
         # 日志输出控件（可在调试时显示信息）

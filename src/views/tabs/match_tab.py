@@ -30,6 +30,8 @@ class MatchTab(QWidget):
 
     def setup_ui(self):
         layout = QVBoxLayout(self)
+        layout.setContentsMargins(0, 0, 0, 0)   # 去掉内边距
+        layout.setSpacing(5)                    # 保留适度间距
 
         # ---------- 文件选择区 ----------
         file_group = QGroupBox("1. 选择文件")
@@ -143,7 +145,7 @@ class MatchTab(QWidget):
         self.btn_start.setMinimumHeight(40)
         layout.addWidget(self.btn_start)
 
-        layout.addStretch()
+        # layout.addStretch()
 
         # 初始化状态
         self._update_ui_state()
